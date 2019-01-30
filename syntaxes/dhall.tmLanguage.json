@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#single_strings"
 		}
 	],
 	"repository": {
@@ -24,6 +27,17 @@
 				{
 					"name": "constant.character.escape.dhall",
 					"match": "\\\\."
+				}
+			]
+		},
+		"single_strings": {
+			"name": "string.quoted.single.dhall",
+			"begin": "''",
+			"end": "''[^']",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dhall",
+					"match": "'''"
 				}
 			]
 		}

@@ -4,6 +4,12 @@ This is a Visual Studio Code syntax highlighting support for the [Dhall](https:/
 
 **This project is under construction !!!**
 
+## Resources
+
+Start with: [Syntax Highlight Guide](https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide)
+[Description of the grammar rules](https://macromates.com/manual/en/language_grammars)
+
+
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
