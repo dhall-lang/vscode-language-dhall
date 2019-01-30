@@ -10,6 +10,12 @@
 		},
 		{
 			"include": "#single_strings"
+		},
+		{
+			"include": "#line_comment"
+		},
+		{
+			"include": "#block_comment"
 		}
 	],
 	"repository": {
@@ -29,6 +35,18 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"line_comment": {
+		  "name": "comment.line.double-dash.dhall",
+		  "begin": "--",
+		  "end": "$",
+		  "patterns": []
+		},
+		"block_comment": {
+		  "name": "comment.block.dhall",
+		  "begin": "\\{-",
+		  "end": "-\\}",
+		  "patterns": [ { "include": "#block_comment" } ]
 		},
 		"single_strings": {
 			"name": "string.quoted.single.dhall",
