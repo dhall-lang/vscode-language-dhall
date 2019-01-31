@@ -16,14 +16,21 @@
 		},
 		{
 			"include": "#block_comment"
+		},
+		{   
+			"include" : "#numbers"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.dhall",
-				"match": "\\b(Bool|Optional|None|Natural|Integer|Double|Text|List|True|False|NaN|Infinity|Type|Kind|Sort|Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build|if|then|else|let|in|as|using|merge|constructors|Some)\\b"
-			}]
+				"match": "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List|True|False|NaN|Infinity|Type|Kind|Sort|Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build|let|in|as|using|merge|constructors|Some)\\b"
+			},
+		    {
+				"name": "keyword.control.conditional.dhall",
+				"match": "\\b(if|then|else)\\b"
+            }]
 		},
 		"strings": {
 			"name": "string.quoted.double.dhall",
@@ -34,6 +41,27 @@
 					"name": "constant.character.escape.dhall",
 					"match": "\\\\."
 				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.exponent.dhall",
+					"match": "e(\\+|\\-)[\\d]+"
+				},
+				{
+					"name": "constant.numeric.double.dhall",
+					"match": "xxxxTODOxxxx"
+				},
+				{
+					"name": "constant.numeric.integer.dhall",
+					"match": "(\\+|\\-)[\\d]+"
+				},
+				{
+					"name": "constant.numeric.natural.dhall",
+					"match": "[\\d]+"
+				}
+				
 			]
 		},
 		"line_comment": {

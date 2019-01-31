@@ -12,7 +12,7 @@ multiline
 comment should be closed
 
 -- Comments can be nested!
-{- foo {- bar -} baz -} yes baby!
+{- foo {- bar -} baz -} yes!
 
 --! Better comments should work with my comments
 
@@ -71,6 +71,34 @@ comment should be closed
 ; * constructors
 ; * Some
 
+-- words
+_this_is_single_word
+List/indexed -- not sure if this should break on '/' or not
+
+`this.is.a12_-.quot$ed.word`
+
+
+
+-- should autoclose:
+''well, that's something''
+""
+[]
+<>
+()
+-- but not in strings
+"''"
+
+-- or comm''ents
+-12345
++12345
+ 12345
+440394 
+
+-- TODO: Infinity, -Infinity are numbers
+Infinity
+-Infinity
+
+abcd
 
 
 
