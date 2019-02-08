@@ -19,12 +19,10 @@
 
 -- grammar : {properties/pa}
 
-} ⩓ Grammar -- which is //\\
+} ⩓ ./Grammar.dhall -- which is //\\
 
 
-let Does: Type = { boo: Natural } ⩓ Config , yess
-
--- ok, sounds weird, but it looks like it should be rootObj /\Grammar
+-- let Does: Type = { boo: Natural } ⩓ Config , yes
 
 -- https://vscode.rocks/testing/
 -- 
