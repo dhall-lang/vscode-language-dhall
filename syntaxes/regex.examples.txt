@@ -1,0 +1,12 @@
+Keyword forall:
+(?:(?=[\p{Ll}_\p{Lu}\p{Lt}])(?<![\p{Ll}_\p{Lu}\p{Lt}']))forall(?:(?<=[\p{Ll}_\p{Lu}\p{Lt}\p{Nd}'])(?![\p{Ll}_\p{Lu}\p{Lt}\p{Nd}']))
+
+?:  -- not capturing group
+?!  -- negative lookahead
+?<= -- lookbehind
+?<! -- negative lookbehind
+
+
+
+
+

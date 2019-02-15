@@ -19,6 +19,12 @@
 		},
 		{   
 			"include" : "#numbers"
+		},
+		{
+			"include": "#assignment"
+		},
+		{
+			"include": "#record"
 		}
 	],
 	"repository": {
@@ -64,6 +70,14 @@
 				
 			]
 		},
+		"assignment": {
+			"patterns": [ 
+				{
+					"name": "keyword.operator.assignment.dhall",
+					"match": "="
+			  }
+			]
+		},
 		"line_comment": {
 		  "name": "comment.line.double-dash.dhall",
 		  "begin": "--",
@@ -76,6 +90,9 @@
 		  "end": "-\\}",
 		  "patterns": [ { "include": "#block_comment" } ]
 		},
+		"comments": {
+			"patterns": [ { "include": "#line_comment"}, {"include": "#block_comment"}]
+		},
 		"single_strings": {
 			"name": "string.quoted.single.dhall",
 			"begin": "''",
@@ -86,7 +103,56 @@
 					"match": "'''"
 				}
 			]
-		}
+		},
+		"label": {
+			"name": "identifier.dhall",
+			"match": "[\\w\\d_]+",
+			"patterns": []
+		},
+		"record" : {
+				"name": "meta.declaration.type.data.record.block.dhall",
+				"begin": "\\{",
+				"beginCaptures": {
+					"0": {
+            "name": "keyword.operator.record.begin.dhall"
+					}
+				},
+				"end": "\\}",
+				"endCaptures": {
+						"0": {
+							"name": "keyword.operator.record.end.dhall"
+						}
+				},
+				"patterns": [
+					{
+						"include": "#comments"
+					},
+					{
+						"include": "#comma"
+					},
+					{
+             "include": "#label"
+					},
+					{
+						"include": "#record_field_declaration"
+					}
+				]
+			
+		},
+		"record_field_declaration" : {
+			
+      "patterns": [
+				
+			]
+		},
+		"comma": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.comma.dhall",
+          "match": ","
+        }
+		  ]
+	  }
 	},
 	"scopeName": "source.dhall"
 }
