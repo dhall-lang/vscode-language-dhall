@@ -9,7 +9,7 @@ Adds highlighting support for Dhall (.dhall) files.
 Big Kudos for the [Sublime Dhall](https://github.com/SQbQxeKd3JHD8/SublimeDhall) which served as a reference.
 
 
-![Highlighting](images/highlight-example.png)
+![Screenshot Highlighting](/images/highlight-example.png?raw=true)
 
 # Dev Resources
 

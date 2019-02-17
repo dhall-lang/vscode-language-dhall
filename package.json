@@ -1,14 +1,30 @@
 {
     "name": "dhall-lang",
-    "displayName": "dhall lang",
+    "displayName": "Dhall Language Support",
     "description": "Syntax highlighting for the dhall programming language",
     "version": "0.0.1",
+    "publisher": "panaeon",
     "engines": {
         "vscode": "^1.30.0"
     },
     "categories": [
         "Programming Languages"
     ],
+    "keywords": [ "language", "dhall", "highlight", "syntax"],
+    "license": "MIT License",
+    "icon": "images/dhall-icon.png",
+    "galleryBanner": {
+        "color": "#293845",
+        "theme": "dark"
+    },
+    "homepage": "https://github.com/PanAeon/vscode-language-dhall",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/PanAeon/vscode-language-dhall.git"
+    },
+    "bugs": {
+        "url": "https://github.com/PanAeon/vscode-language-dhall/issues"
+    },
     "contributes": {
         "languages": [
             {
