@@ -3,40 +3,98 @@
 	"name": "Dhall",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#single_strings"
-		},
-		{
-			"include": "#line_comment"
-		},
-		{
-			"include": "#block_comment"
-		},
-		{   
-			"include" : "#numbers"
-		},
-		{
-			"include": "#assignment"
-		},
-		{
-			"include": "#record"
+			"include": "#expression"
 		}
+		
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.dhall",
-				"match": "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List|True|False|NaN|Infinity|Type|Kind|Sort|Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build|let|in|as|using|merge|constructors|Some)\\b"
+				"match": "\\b(let|in|as|using|merge|constructors)\\b"
+			},
+			{
+				"name": "keyword.other.dhall",
+				"match": "\\b(Type|Kind|Sort)\\b"
+			},
+			{
+				"name": "constant.language.dhall",
+				"match": "\\b(True|False|NaN|Infinity|Some)\\b"
+			},
+			{
+				"name": "constant.numeric.dhall",
+				"match": "\\b(NaN|Infinity)\\b"
+			},
+			{
+				"name": "entity.name.function",
+				"match": "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
+			},
+			{
+				"name": "support.class.dhall",
+				"match": "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List)\\b"
 			},
 		    {
 				"name": "keyword.control.conditional.dhall",
 				"match": "\\b(if|then|else)\\b"
             }]
+		},
+		"expression": {
+			"patterns": [
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#forall"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#single_strings"
+				},
+				{
+					"include": "#line_comment"
+				},
+				{
+					"include": "#block_comment"
+				},
+				{   
+					"include" : "#numbers"
+				},
+				{
+					"include": "#url"
+				},
+				{
+					"include": "#file"
+				},
+				{
+					"include": "#env"
+				},
+				{
+					"include": "#label"
+				},
+				{
+					"include": "#record"
+				},
+				{
+					"include": "#union"
+				},
+				{
+					"include": "#list"
+				},
+				{
+					"include": "#parens"
+				},
+				{
+					"include": "#operators"
+				},
+				{
+					"include": "#lambda"
+				},
+				{
+					"include": "#let"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.dhall",
@@ -44,20 +102,29 @@
 			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.dhall",
-					"match": "\\\\."
+					"name": "constant.other.placeholder.dhall",
+					"begin": "\\$\\{",
+					"beginCaptures": { "0": { "name": "punctuation.section.curly.begin.dhall"}},
+					"end": "\\}",
+					"endCaptures": { "0": { "name": "punctuation.section.curly.end.dhall"}},
+					"patterns": [
+						{
+							"include": "#expression"
+						}
+					]
+				},
+				{
+					"name": "constant.character.escape.sequence.dhall",
+					"match": "\\\\(?:[\"$\\\\/bfnrt]|[u][a-fA-F0-9]{4})"
+					
 				}
 			]
 		},
 		"numbers": {
 			"patterns": [
 				{
-					"name": "constant.numeric.exponent.dhall",
-					"match": "e(\\+|\\-)[\\d]+"
-				},
-				{
-					"name": "constant.numeric.double.dhall",
-					"match": "xxxxTODOxxxx"
+					"name": "constant.numeric.float.dhall",
+					"match": "[+-]?\\d+(?:(\\.)\\d+(?:e[+-]?\\d+)?|(?:e[+-]?\\d+))"
 				},
 				{
 					"name": "constant.numeric.integer.dhall",
@@ -68,6 +135,71 @@
 					"match": "[\\d]+"
 				}
 				
+			]
+		},
+		"url": {
+			"match": "____IMPOSSIBLE_IN_JSON_____",
+			"captures": {
+				"1": {
+					"name": "markup.underline.url.dhall string.unquoted.url.dhall meta.path.url.dhall"
+				}
+			},
+			"patterns": []
+		},
+		"file": {
+			"match": "____IMPOSSIBLE_IN_JSON_____",
+			"name": "",
+			"patterns": []
+		},
+		"env": {
+			"match": "____IMPOSSIBLE_IN_JSON_____",
+			"name": "",
+			"patterns": []
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.arrow.dhall",
+					"match": "(?:->|→)"
+				},
+				{ "match": ":",
+					"name": "keyword.other.colon.dhall" },
+				{ "match": "(?:\\|{2}|&{2})",
+					"name": "keyword.operator.logical.dhall" },
+				{ "match": "[!=]=",
+					"name": "keyword.operator.equality.dhall" },
+				{ "match": "=",
+					"name": "keyword.operator.assignment.dhall" },
+				{ "match": "(?:#|\\+{2})",
+					"name": "keyword.operator.sequence.dhall" },
+				{ "match": "[\\+\\*]",
+					"name": "keyword.operator.arithmetic.dhall" },
+				{ "match": "(?:∧|/\\\\|⩓|//\\\\\\\\|⫽|//)",
+					"name": "keyword.operator.combine.dhall" }
+				
+			]
+		},
+		"forall": {
+			"match": "\\bforall\\b|∀",
+			"name": "storage.modifier.universal-quantifier.dhall",
+			"patterns": []
+		},
+		"lambda": {
+			"match": "λ|\\\\",
+			"name": "keyword.control.dhall",
+			"patterns": []
+		},
+		"let": {
+			"comment": "TODO: is it possible (and necessary?) to define big meta scope for let?",
+			"patterns": [ 
+				{
+                  "match": "\\blet\\b",
+				  "name": "keyword.other.let.dhall"
+				},
+				{
+				  "match": "\\bin\\b",
+				  "name": "keyword.other.in.dhall"
+				}
 			]
 		},
 		"assignment": {
@@ -95,26 +227,54 @@
 		},
 		"single_strings": {
 			"name": "string.quoted.single.dhall",
-			"begin": "''",
-			"end": "''[^']",
+			"begin": "''$",
+			"end": "''(?!')(?!\\$\\{)",
 			"patterns": [
 				{
-					"name": "constant.character.escape.dhall",
+					"name": "constant.character.escape.quotes.dhall",
 					"match": "'''"
-				}
+				},
+				{
+					"name": "constant.character.escape.interpolation.dhall",
+					"match": "''\\$\\{"
+				},
+					{
+						"name": "constant.other.placeholder.dhall",
+						"begin": "\\$\\{",
+						"beginCaptures": { "0": { "name": "punctuation.section.curly.begin.dhall"}},
+						"end": "\\}",
+						"endCaptures": { "0": { "name": "punctuation.section.curly.end.dhall"}},
+						"patterns": [
+							{
+								"include": "#expression"
+							}
+						]
+					}
 			]
 		},
 		"label": {
-			"name": "identifier.dhall",
-			"match": "[\\w\\d_]+",
-			"patterns": []
+			"name": "meta.label.dhall",
+			"patterns": [{
+				"name": "meta.label.dhall",
+				"match": "(?:[a-zA-Z]|_)(?:\\w|[-/_])*"
+			}, {
+				"name": "metal.label.quoted.dhall",
+				"begin": "`",
+			    "end": "`",
+				"patterns": [{
+					"name": "meta.label.dhall",
+					"match": "[\\w\\-/_:\\.]+"
+				}],
+				"beginCaptures": { "0": { "name": "punctuation.section.backtick.begin.dhall" }},
+				"endCaptures": { "0" : {"name": "punctuation.section.backtick.end.dhall" }}
+			}]
 		},
 		"record" : {
-				"name": "meta.declaration.type.data.record.block.dhall",
+				"name": "meta.declaration.data.record.block.dhall",
 				"begin": "\\{",
 				"beginCaptures": {
 					"0": {
-            "name": "keyword.operator.record.begin.dhall"
+                      "name": "keyword.operator.record.begin.dhall"
 					}
 				},
 				"end": "\\}",
@@ -125,34 +285,180 @@
 				},
 				"patterns": [
 					{
-						"include": "#comments"
+						"include": "#expression"
 					},
 					{
-						"include": "#comma"
+						"comment": " FIXME: punctuation? is not defined in textmate grammar reference",
+						"begin": ":",
+						"beginCaptures": {
+							"0": {
+								
+								"name": "punctuation.separator.dictionary.key-value.dhall"
+							}
+						},
+						"end": "(,)|(?=\\})",
+						"endCaptures": {
+							"1": {
+								"name": "punctuation.separator.dictionary.pair.dhall"
+							}
+						},
+						"name": "meta.declaration.data.record.type.dhall",
+						"patterns": [
+							{
+								"include": "#expression"
+							}
+						]
 					},
 					{
-             "include": "#label"
+						"comment": " FIXME: punctuation? is not defined in textmate grammar reference",
+						"begin": "=",
+						"beginCaptures": {
+							"0": {
+								
+								"name": "punctuation.separator.dictionary.key-value.dhall"
+							}
+						},
+						"end": "(,)|(?=\\})",
+						"endCaptures": {
+							"1": {
+								"name": "punctuation.separator.dictionary.pair.dhall"
+							}
+						},
+						"name": "meta.declaration.data.record.literal.dhall",
+						"patterns": [
+							{
+								"include": "#expression"
+							}
+						]
 					},
 					{
-						"include": "#record_field_declaration"
+						"include": "#assignment"
+					},
+					{
+						"comment": "FIXME: entity.name.tag? label",
+						"include": "#label"
 					}
 				]
 			
 		},
-		"record_field_declaration" : {
-			
-      "patterns": [
-				
+		"union" : {
+			"name": "meta.declaration.data.union.block.dhall",
+			"begin": "<",
+			"beginCaptures": {
+				"0": {
+				  "name": "keyword.operator.union.begin.dhall"
+				}
+			},
+			"end": ">",
+			"endCaptures": {
+					"0": {
+						"name": "keyword.operator.union.end.dhall"
+					}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"comment": " FIXME: punctuation? is not defined in textmate grammar reference",
+					"begin": ":",
+					"beginCaptures": {
+						"0": {
+							
+							"name": "punctuation.separator.dictionary.key-value.dhall"
+						}
+					},
+					"end": "(\\|)|(?=\\>)",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.separator.dictionary.pair.dhall"
+						}
+					},
+					"name": "meta.declaration.data.union.type.dhall",
+					"patterns": [
+						{
+							"include": "#expression"
+						}
+					]
+				},
+				{
+					"comment": " FIXME: punctuation? is not defined in textmate grammar reference",
+					"begin": "=",
+					"beginCaptures": {
+						"0": {
+							
+							"name": "punctuation.separator.dictionary.key-value.dhall"
+						}
+					},
+					"end": "(\\|)|(?=\\>)",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.separator.dictionary.pair.dhall"
+						}
+					},
+					"name": "meta.declaration.data.union.literal.dhall",
+					"patterns": [
+						{
+							"include": "#expression"
+						}
+					]
+				},
+				{
+					"include": "#assignment"
+				},
+				{
+					"comment": "FIXME: entity.name.tag? label",
+					"include": "#label"
+				}
 			]
+		
 		},
-		"comma": {
-      "patterns": [
-        {
-          "name": "punctuation.separator.comma.dhall",
-          "match": ","
-        }
-		  ]
-	  }
+		"list" : {
+			"name": "meta.brackets.list.dhall",
+			"begin": "\\[",
+			"beginCaptures": {
+				"0": {
+				  "name": "punctuation.section.brackets.begin.list.dhall"
+				}
+			},
+			"end": "\\]",
+			"endCaptures": {
+					"0": {
+						"name": "punctuation.section.brackets.end.list.dhall"
+					}
+			},
+			"patterns": [
+				{
+					"name": "punctuation.separator.sequence.list.dhall",
+					"match": ","
+				},
+				{
+					"include": "#expression"
+				}
+			]
+		
+		},
+		"parens" : {
+			"name": "meta.parens.dhall",
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+				  "name": "punctuation.section.parens.begin.dhall"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+					"0": {
+						"name": "punctuation.section.parens.end.dhall"
+					}
+			},
+			"patterns": [
+				{
+					"include": "#expression"
+				}
+			]
+		
+		}
 	},
 	"scopeName": "source.dhall"
 }
