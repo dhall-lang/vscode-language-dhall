@@ -21,17 +21,17 @@
                   , end :
                       Optional Text
                   , captures :
-                      Capture
+                      Optional Capture
                   , beginCaptures :
-                      Capture
+                      Optional Capture
                   , endCaptures :
-                      Capture
+                      Optional Capture
                   , patterns :
-                      List Pattern
+                       List Pattern
                   , applyEndPatternLast :
-                      Integer
+                      Optional Integer
                   , while :
-                      Text
+                      Optional Text
                   }
                 → Pattern
               )

@@ -1,7 +1,7 @@
   ∀(Grammar : Type)
 → ∀ ( MakeGrammar
     :   { patterns :
-            List ./types/Pattern.dhall
+            List ./Pattern.dhall
         , repository :
             Optional { mapKey : Text, mapValue : Grammar }
         }
