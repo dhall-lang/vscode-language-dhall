@@ -3,6 +3,7 @@
     "displayName": "Dhall Language Support",
     "description": "Syntax highlighting for the dhall programming language",
     "version": "0.0.1",
+    "preview": true,
     "publisher": "panaeon",
     "engines": {
         "vscode": "^1.30.0"
