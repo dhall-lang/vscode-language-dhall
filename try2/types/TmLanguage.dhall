@@ -17,4 +17,7 @@
 , uuid: Optional Text
 , firstLineMatch: Optional Text
 
+--- from Grammar:
+, patterns :  List Text  -- FIXME: List Patterns, default []
+, repository: Optional { mapKey : Text, mapValue: Text } -- FIXME: reference on grammar
 }

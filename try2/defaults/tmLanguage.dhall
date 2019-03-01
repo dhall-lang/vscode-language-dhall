@@ -7,4 +7,6 @@
 , foldingStopMarker = None Text
 , uuid = None  Text
 , firstLineMatch = None Text
+, patterns = []: List Text
+, repository = None { mapKey : Text, mapValue: Text }
 } : ../types/TmLanguage.dhall
