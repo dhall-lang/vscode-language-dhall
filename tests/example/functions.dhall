@@ -11,4 +11,4 @@ let makeUser = \(user : Text) ->
     {- Add another user to this list -}
 in  [ makeUser "bill"
     , makeUser "jane"
-    ]
+]

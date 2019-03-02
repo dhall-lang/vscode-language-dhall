@@ -14,10 +14,10 @@ let example
             , MakePerson { children = [] : List Person, name = "Jane" }
             ]
         , name =
-            "John"
+            "John" 
         }
 
-let everybody
+let everybody 
     : Person → List Text
     = let concat = http://prelude.dhall-lang.org/List/concat
       
@@ -31,3 +31,5 @@ let everybody
 let result : List Text = everybody example
 
 in  result
+
+

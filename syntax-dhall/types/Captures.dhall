@@ -5,4 +5,4 @@
           name: Text -- validation - def name
         , patterns: List ./Pattern.dhall -- default empty
       }
-}   
+}  

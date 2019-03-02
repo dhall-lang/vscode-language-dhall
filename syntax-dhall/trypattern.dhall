@@ -43,4 +43,4 @@ let example: ./types/Pattern.dhall
                 --   , applyEndPatternLast = None
                 --   , while = None
         }
-in example (Natural) (Optional Text) (\(p: { comment : Optional Text }) -> p.comment )
+in example (Natural) (Optional Text) (\(p: { comment : Optional Text }) -> p.comment ) 

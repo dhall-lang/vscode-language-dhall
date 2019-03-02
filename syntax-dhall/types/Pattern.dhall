@@ -1,4 +1,5 @@
-
+    let foo = 3   
+    -- let z = ./Grammar.dhall
     let Pattern
         : Type
         =   ∀(Capture : Type)
