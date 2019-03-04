@@ -17,7 +17,7 @@
         "highlight",
         "syntax"
     ],
-    "license": "MIT License",
+    "license": "MIT",
     "icon": "images/dhall-icon.png",
     "galleryBanner": {
         "color": "#293845",
@@ -53,13 +53,13 @@
             }
         ]
     },
+    "comment": "oniguruma ~7.0.2",
     "devDependencies": {
-        "js-yaml": "^3.12.1"
+        "js-yaml": "^3.12.1",
+        "ts-node": "^8.0.2",
+        "tsc": "^1.20150623.0"
     },
     "dependencies": {
-        "json-schema-to-typescript": "^6.1.1",
-        "ts-node": "^8.0.2",
-        "tsc": "^1.20150623.0",
         "typescript": "^3.3.3"
     }
 }
