@@ -1,81 +1,96 @@
 "use strict";
-exports.__esModule = true;
-var TmLanguage_1 = require("./TmLanguage");
-var vars = {
-    hex_digit: '(?:\d|[a-fA-F])',
-    simple_label: '(?:[:alpha:]|_)(?:[:alpha:]|\d|[-/_])*',
-    quoted_label: '(?:[:alpha:]|\d|[-/_:\.])+',
-    exponent: '(?:e[+-]?\d+)',
-    path_character: '[^\s#/\\/,<>\?\(\)\[\]\{\}]',
-    path_component: "(?:/" + this.path_character + "+)",
-    directory: "(?:" + this.path_component + "*)",
-    file: "" + this.path_component,
-    local: "(?:(?:..?|~)?" + this.directory + this.file + ")",
-    scheme: '(?:https?)',
-    url: "(?:" + this.scheme + "://" + this.authority + this.directory + this.file + "(?:\\?" + this.query + ")?(?:#" + this.fragment + ")?)",
-    authority: "(?:(?:" + this.userinfo + "@)?" + this.host + "(?::" + this.port + ")?)",
-    userinfo: "(?:(?:" + this.unreserved + "|" + this.pct_encoded + "|" + this.sub_delims + "|:)*)",
-    host: "(?:" + this.IP_literal + "|" + this.IPv4address + "|" + this.reg_name + ")",
-    port: '(?:\d*)',
-    IP_literal: "(?:[(?:" + this.IPv6address + "|" + this.IPvFuture + ")])",
-    IPvFuture: "(?:v" + this.hex_digit + "+.(?:" + this.unreserved + "|" + this.sub_delims + "|:)+)",
-    IPv6address: "(?:(?:" + this.h16 + ":){6}" + this.ls32 + "|::(?:" + this.h16 + ":){5}" + this.ls32 + "|(?:" + this.h16 + ")?::"
-        + ("(?:" + this.h16 + ":){4}" + this.ls32 + "|(?:(?:" + this.h16 + ":){1,}" + this.h16 + ")?::(?:" + this.h16 + ":){3}")
-        + (this.ls32 + "|(?:(?:" + this.h16 + ":){2,}" + this.h16 + ")?::(?:" + this.h16 + ":){2}" + this.ls32 + "|")
-        + ("(?:(?:" + this.h16 + ":){3,}" + this.h16 + ")?::(?:" + this.h16 + ":){1}" + this.ls32 + "|(?:(?:" + this.h16 + ":){4,}")
-        + (this.h16 + ")?::" + this.ls32 + "|(?:(?:" + this.h16 + ":){5,}" + this.h16 + ")?::" + this.h16 + "|(?:(?:" + this.h16 + ":)")
-        + ("{6,}" + this.h16 + ")?::)"),
-    h16: "(?:" + this.hex_digit + "{1,4})",
-    ls32: "(?:" + this.h16 + ":" + this.h16 + "|" + this.IPv4address + ")",
-    IPv4address: "(?:" + this.dec_octet + "." + this.dec_octet + "." + this.dec_octet + "." + this.dec_octet + ")",
-    dec_octet: "(?:25[0-5]|2[0-4]d|1d{2}|[1-9]d|d)",
-    reg_name: "(?:(?:" + this.unreserved + "|" + this.pct_encoded + "|" + this.sub_delims + ")*)",
-    pchar: "(?:" + this.unreserved + "|" + this.pct_encoded + "|" + this.sub_delims + "|[:@])",
-    query: "(?:(?:" + this.pchar + "|[/?])*)",
-    fragment: "" + this.query,
-    pct_encoded: "(?:%" + this.hex_digit + "{2})",
-    unreserved: "(?:[:alpha:]|d|[-._~])",
-    sub_delims: "[!$&''()*+,;=]",
-    // env: '(?:env:(?:${this.bash_env_var}|"${this.posix_env_var}"))'
-    bash_env_var: "(?:(?:[:alpha:]|_)(?:[:alpha:]|d|_)*)",
-    posix_env_var: "(?:" + this.posix_env_var_char + "+)",
-    posix_env_var_char: "(?:\\[\"\\abfnrtv]|[^\"\\=])"
-};
-var tmLanguage = {
+
+import {
+    TmLanguage
+    , Pattern
+    , Captures
+    , Grammar
+    , Convert
+} from "./model/TmLanguage";
+
+
+
+const  hex_digit =  '(?:\\d|[a-fA-F])';
+
+const  simple_label = '(?:[:alpha:]|_)(?:[:alpha:]|\\d|[-/_])*';
+const  quoted_label = '(?:[:alpha:]|\\d|[-/_:\\.])+';
+const  exponent = '(?:e[+-]?\\d+)';
+const  path_character = '[^\\s#\\/\\\\,<>\\?\\(\\)\\[\\]\\{\\}]';
+const  path_component = `(?:\\/${path_character}+)`;
+const  directory = `(?:${path_component}*)`;
+const  file = `${path_component}`;
+const  local = `(?:(?:\\.\\.?|~)?${directory}${file})`;
+const  h16 = `(?:${hex_digit}{1,4})`;
+const  dec_octet = `(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)`;
+const  unreserved = `(?:[:alpha:]|\\d|[-\\._~])`;
+const  IPv4address = `(?:${dec_octet}\\.${dec_octet}\\.${dec_octet}\\.${dec_octet})`;
+const  ls32 = `(?:${h16}:${h16}|${IPv4address})`;
+const  scheme = '(?:https?)';
+const  pct_encoded = `(?:%${hex_digit}{2})`;
+const  sub_delims = `[!\\$&''\\(\\)\\*\\+,;=]`;
+const  userinfo = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims}|:)*)`;
+const  reg_name = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims})*)`;
+const  pchar = `(?:${unreserved}|${pct_encoded}|${sub_delims}|[:@])`;
+const  query = `(?:(?:${pchar}|[\\/?])*)`;
+const  fragment = `${query}`;
+const  IPvFuture = `(?:v${hex_digit}+\\.(?:${unreserved}|${sub_delims}|:)+)`;
+const  IPv6address =
+      `(?:(?:${h16}:){6}${ls32}|::(?:${h16}:){5}${ls32}|(?:${h16})?::` 
+    + `(?:${h16}:){4}${ls32}|(?:(?:${h16}:){1,}${h16})?::(?:${h16}:){3}`
+    + `${ls32}|(?:(?:${h16}:){2,}${h16})?::(?:${h16}:){2}${ls32}|`
+    + `(?:(?:${h16}:){3,}${h16})?::(?:${h16}:){1}${ls32}|(?:(?:${h16}:){4,}`
+    + `${h16})?::${ls32}|(?:(?:${h16}:){5,}${h16})?::${h16}|(?:(?:${h16}:)`
+    + `{6,}${h16})?::)`;
+const  IP_literal = `(?:\\[(?:${IPv6address}|${IPvFuture})\\])`;
+const  host = `(?:${IP_literal}|${IPv4address}|${reg_name})`;
+const  port = '(?:\\d*)';
+const  authority = `(?:(?:${userinfo}@)?${host}(?::${port})?)`;
+const  url =
+    `(?:${scheme}:\\/${authority}${directory}${file}(?:\\\\?${query})?(?:#${fragment})?)`;
+
+const  bash_env_var = `(?:(?:[:alpha:]|_)(?:[:alpha:]|\d|_)*)`;
+const  posix_env_var_char = `(?:\\["\\abfnrtv]|[^"\\=])`;
+const  posix_env_var = `(?:${posix_env_var_char}+)`;
+
+
+
+
+
+const tmLanguage: TmLanguage = {
     name: "Dhall",
     patterns: [{
-            include: "#expression"
-        }],
+        include: "#expression"
+    }],
     repository: {
         keywords: {
             patterns: [{
-                    name: "keyword.control.dhall",
-                    match: "\\b(let|in|as|using|merge|constructors)\\b"
-                },
-                {
-                    name: "keyword.other.dhall",
-                    match: "\\b(Type|Kind|Sort)\\b"
-                },
-                {
-                    name: "constant.language.dhall",
-                    match: "\\b(True|False|NaN|Infinity|Some)\\b"
-                },
-                {
-                    name: "constant.numeric.dhall",
-                    match: "\\b(NaN|Infinity)\\b"
-                },
-                {
-                    name: "entity.name.function",
-                    match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
-                },
-                {
-                    name: "support.class.dhall",
-                    match: "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List)\\b"
-                },
-                {
-                    name: "keyword.control.conditional.dhall",
-                    match: "\\b(if|then|else)\\b"
-                }]
+                name: "keyword.control.dhall",
+                match: "\\b(let|in|as|using|merge|constructors)\\b"
+            },
+            {
+                name: "keyword.other.dhall",
+                match: "\\b(Type|Kind|Sort)\\b"
+            },
+            {
+                name: "constant.language.dhall",
+                match: "\\b(True|False|NaN|Infinity|Some)\\b"
+            },
+            {
+                name: "constant.numeric.dhall",
+                match: "\\b(NaN|Infinity)\\b"
+            },
+            {
+                name: "entity.name.function",
+                match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
+            },
+            {
+                name: "support.class.dhall",
+                match: "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List)\\b"
+            },
+            {
+                name: "keyword.control.conditional.dhall",
+                match: "\\b(if|then|else)\\b"
+            }]
         },
         expression: {
             patterns: [
@@ -128,6 +143,9 @@ var tmLanguage = {
                     include: "#operators"
                 },
                 {
+                    include: "#url"
+                },
+                {
                     include: "#lambda"
                 },
                 {
@@ -136,6 +154,7 @@ var tmLanguage = {
             ]
         },
         strings: {
+
             patterns: [
                 {
                     name: "string.quoted.double.dhall",
@@ -157,13 +176,15 @@ var tmLanguage = {
                         {
                             name: "constant.character.escape.sequence.dhall",
                             match: "\\\\(?:[\"$\\\\/bfnrt]|[u][a-fA-F0-9]{4})"
+
                         }
                     ]
                 }
             ]
         },
-        "numbers": {
+        numbers: {
             patterns: [
+                
                 {
                     name: "constant.numeric.float.dhall",
                     match: "[+-]?\\d+(?:(\\.)\\d+(?:e[+-]?\\d+)?|(?:e[+-]?\\d+))"
@@ -176,38 +197,44 @@ var tmLanguage = {
                     name: "constant.numeric.natural.dhall",
                     match: "[\\d]+"
                 }
+
             ]
         },
         url: {
+
             patterns: [
                 {
-                    match: "____IMPOSSIBLE_IN_JSON_____",
-                    "captures": {
-                        "1": {
-                            name: "markup.underline.url.dhall string.unquoted.url.dhall meta.path.url.dhall"
-                        }
+                    match: `(${url})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+                    captures: {
+                        "1": { 
+                            name: `markup.underline.url.dhall`
+                            },
+                        "2": { name: `storage.modifier.hash.dhall` },
+                        "3": { name: `punctuation.separator.colon.dhall` },
+                        "4": { name: `constant.numeric.integer.hash.dhall` },
+                        "5": { name: `storage.modifier.as.dhall` },
+                        "6": { name: `storage.type.dhall` },
                     },
                     patterns: []
-                }
-            ]
+                }]
         },
         file: {
+
             patterns: [
                 {
                     match: "____IMPOSSIBLE_IN_JSON_____",
                     name: "",
                     patterns: []
-                }
-            ]
+                }]
         },
         env: {
+
             patterns: [
                 {
                     match: "____IMPOSSIBLE_IN_JSON_____",
                     name: "",
                     patterns: []
-                }
-            ]
+                }]
         },
         operators: {
             patterns: [
@@ -243,27 +270,29 @@ var tmLanguage = {
                     match: "(?:∧|/\\\\|⩓|//\\\\\\\\|⫽|//)",
                     name: "keyword.operator.combine.dhall"
                 }
+
             ]
         },
         forall: {
+
             patterns: [
                 {
                     match: "\\bforall\\b|∀",
                     name: "storage.modifier.universal-quantifier.dhall",
                     patterns: []
-                }
-            ]
+                }]
         },
         lambda: {
+
             patterns: [
                 {
                     match: "λ|\\\\",
                     name: "keyword.control.dhall",
                     patterns: []
-                }
-            ]
+                }]
         },
         let: {
+
             patterns: [
                 {
                     comment: "TODO: is it possible (and necessary?) to define big meta scope for let?",
@@ -277,8 +306,7 @@ var tmLanguage = {
                             name: "keyword.other.in.dhall"
                         }
                     ]
-                }
-            ]
+                }]
         },
         assignment: {
             patterns: [
@@ -295,8 +323,7 @@ var tmLanguage = {
                     begin: "--",
                     end: "$",
                     patterns: []
-                }
-            ]
+                }]
         },
         block_comment: {
             patterns: [
@@ -305,13 +332,13 @@ var tmLanguage = {
                     begin: "\\{-",
                     end: "-\\}",
                     patterns: [{ include: "#block_comment" }]
-                }
-            ]
+                }]
         },
         comments: {
             patterns: [{ include: "#line_comment" }, { include: "#block_comment" }]
         },
         single_strings: {
+
             patterns: [
                 {
                     name: "string.quoted.single.dhall",
@@ -339,31 +366,31 @@ var tmLanguage = {
                             ]
                         }
                     ]
-                }
-            ]
+                }]
         },
         label: {
+
             patterns: [
                 {
                     name: "meta.label.dhall",
                     patterns: [{
+                        name: "meta.label.dhall",
+                        match: "(?:[a-zA-Z]|_)(?:\\w|[-/_])*"
+                    }, {
+                        name: "metal.label.quoted.dhall",
+                        begin: "`",
+                        end: "`",
+                        patterns: [{
                             name: "meta.label.dhall",
-                            match: "(?:[a-zA-Z]|_)(?:\\w|[-/_])*"
-                        }, {
-                            name: "metal.label.quoted.dhall",
-                            begin: "`",
-                            end: "`",
-                            patterns: [{
-                                    name: "meta.label.dhall",
-                                    match: "[\\w\\-/_:\\.]+"
-                                }],
-                            beginCaptures: { "0": { name: "punctuation.section.backtick.begin.dhall" } },
-                            endCaptures: { "0": { name: "punctuation.section.backtick.end.dhall" } }
-                        }]
-                }
-            ]
+                            match: "[\\w\\-/_:\\.]+"
+                        }],
+                        beginCaptures: { "0": { name: "punctuation.section.backtick.begin.dhall" } },
+                        endCaptures: { "0": { name: "punctuation.section.backtick.end.dhall" } }
+                    }]
+                }]
         },
         record: {
+
             patterns: [
                 {
                     name: "meta.declaration.data.record.block.dhall",
@@ -388,6 +415,7 @@ var tmLanguage = {
                             begin: ":",
                             beginCaptures: {
                                 "0": {
+
                                     name: "punctuation.separator.dictionary.key-value.dhall"
                                 }
                             },
@@ -409,6 +437,7 @@ var tmLanguage = {
                             begin: "=",
                             beginCaptures: {
                                 "0": {
+
                                     name: "punctuation.separator.dictionary.key-value.dhall"
                                 }
                             },
@@ -433,10 +462,10 @@ var tmLanguage = {
                             include: "#label"
                         }
                     ]
-                }
-            ]
+                }]
         },
         union: {
+
             patterns: [
                 {
                     name: "meta.declaration.data.union.block.dhall",
@@ -461,6 +490,7 @@ var tmLanguage = {
                             begin: ":",
                             beginCaptures: {
                                 "0": {
+
                                     name: "punctuation.separator.dictionary.key-value.dhall"
                                 }
                             },
@@ -482,6 +512,7 @@ var tmLanguage = {
                             begin: "=",
                             beginCaptures: {
                                 "0": {
+
                                     name: "punctuation.separator.dictionary.key-value.dhall"
                                 }
                             },
@@ -506,10 +537,10 @@ var tmLanguage = {
                             include: "#label"
                         }
                     ]
-                }
-            ]
+                }]
         },
         list: {
+
             patterns: [
                 {
                     name: "meta.brackets.list.dhall",
@@ -534,10 +565,10 @@ var tmLanguage = {
                             include: "#expression"
                         }
                     ]
-                }
-            ]
+                }]
         },
         parens: {
+
             patterns: [
                 {
                     name: "meta.parens.dhall",
@@ -558,11 +589,14 @@ var tmLanguage = {
                             include: "#expression"
                         }
                     ]
-                }
-            ]
+                }]
         }
     },
     scopeName: "source.dhall"
-};
-var json = TmLanguage_1.Convert.tmLanguageToJson(tmLanguage);
-console.log(json);
+}
+
+const json = Convert.tmLanguageToJson(tmLanguage);
+
+// console.log(json);
+// ts-node, tsc
+// console.log(url);

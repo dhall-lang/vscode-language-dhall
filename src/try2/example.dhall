@@ -2,6 +2,11 @@
 -- * check https://github.com/dhall-lang/dhall-lang/issues/3
 -- * and https://github.com/dhall-lang/dhall-haskell/issues/62
 --
+
+-- the same recursive problem again, because nested repository can't contain same values. the best is 
+-- union? but then I'll have to specify verbose type everywhere. I can extract the type out
+-- still boilerplate
+-- recursive + translator? Looks right..
 ./defaults/tmLanguage.dhall {} {} { scopeName = "source.dhall"} //
 { 
   name = Some "Dhall"
@@ -18,8 +23,18 @@
           , match = Some "\\b(let|in|as|using|merge|constructors)\\b"
         }]
       }
+    },
+    {
+        mapKey = "foo"
+      , mapValue = ./defaults/grammar.dhall {} {} // {
+        patterns = [ ./defaults/pattern.dhall {} {} // {
+            include  = Some "keyword.control.dhall"
+            
+          -- , match = Some "\\b(let|in|as|using|merge|constructors)\\b"
+        }]
+      }
     }
-  ]
+  ] 
 }     
 
 -- [{
