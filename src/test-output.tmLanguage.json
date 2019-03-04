@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "fileTypes": [],
+  "name": "Dhall",
+  "patterns": [
+    {
+      "include": "expression"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(let|in|as|using|merge|constructors)\\b",
+          "name": "keyword.control.dhall"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.dhall"
+}

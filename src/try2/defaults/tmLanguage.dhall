@@ -1,4 +1,4 @@
-\(_params : {scopeName: Text}) ->
+λ (Grammar: Type) -> λ (Pattern: Type) -> λ(_params : {scopeName: Text}) ->
 { `$schema` = Some "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json"
 , name = None Text
 , scopeName = _params.scopeName
@@ -7,6 +7,6 @@
 , foldingStopMarker = None Text
 , uuid = None  Text
 , firstLineMatch = None Text
-, patterns = []: List Text
-, repository = None { mapKey : Text, mapValue: Text }
-} : ../types/TmLanguage.dhall
+, patterns = []: List Pattern
+, repository = [] : List { mapKey : Text, mapValue: Grammar }
+} : ../defs/mkTmLanguage.dhall (Grammar)  (Pattern)  

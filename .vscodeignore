@@ -1,6 +1,6 @@
 .vscode/**
 .vscode-test/**
 .gitignore
-vsc-extension-quickstart.md
-syntax-dhall/**
 tests/**
+src/**
+
