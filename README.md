@@ -2,7 +2,6 @@
 
 Syntax highlighting support for the [Dhall](https://dhall-lang.org) programming language.
 
-> This is an **alpha** version. Some features might not work at all or work incorrectly.
 
 # Highlighting
 Adds highlighting support for Dhall (.dhall) files.
@@ -10,6 +9,19 @@ Big Kudos for the [Sublime Dhall](https://github.com/SQbQxeKd3JHD8/SublimeDhall)
 
 
 ![Screenshot Highlighting](/images/highlight-example.png?raw=true)
+
+# Development
+Source code is located at `src/typescript/dhall-tmlanguage.ts` and is an executable typescript file.
+
+Build steps:
+
+```bash
+npm install
+npm build
+cd ./src/typescript
+ts-node dhall-tmlanguage.ts  > ../syntaxes/dhall.tmLanguage.json
+```
+
 
 # Dev Resources
 

@@ -597,6 +597,6 @@ const tmLanguage: TmLanguage = {
 
 const json = Convert.tmLanguageToJson(tmLanguage);
 
-// console.log(json);
+console.log(json);
 // ts-node, tsc
 // console.log(url);
