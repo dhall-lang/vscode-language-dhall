@@ -8,6 +8,10 @@ import {
     , Convert
 } from "./model/TmLanguage";
 
+import * as fs from 'fs' ;
+import {Validator} from "jsonschema";
+
+let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();  
 
 
 const  hex_digit =  '(?:\\d|[a-fA-F])';
@@ -597,6 +601,21 @@ const tmLanguage: TmLanguage = {
 
 const json = Convert.tmLanguageToJson(tmLanguage);
 
-console.log(json);
+// * in principle we statically validate the schema already via the model, 
+// * but let's do it again just to be sure
+const validator = new Validator();
+
+const validationResult = validator.validate(json, schema);
+
+if (validationResult.valid) {
+    console.log(json);
+} else {
+    console.error("** Output json doesn't match tmLanguage schema**");
+    console.error(validationResult.errors);
+    process.exit(1);
+}
+
+
+
 // ts-node, tsc
 // console.log(url);
