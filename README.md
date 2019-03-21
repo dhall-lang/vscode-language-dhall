@@ -18,8 +18,7 @@ Build steps:
 ```bash
 npm install
 npm build
-cd ./src/typescript
-ts-node dhall-tmlanguage.ts  > ../syntaxes/dhall.tmLanguage.json
+npx ts-node src/typescript/dhall-tmlanguage.ts > ./syntaxes/dhall.tmLanguage.json
 ```
 
 
