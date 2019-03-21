@@ -2,6 +2,7 @@
 
 Syntax highlighting support for the [Dhall](https://dhall-lang.org) programming language.
 
+**Note:** I've added different highlights for lowercase and uppercase constants. It's kind of makes sense, but in some instances it doesn't. We can discuss this on github if it's too distracting I'd turn it off.
 
 # Highlighting
 Adds highlighting support for Dhall (.dhall) files.

@@ -11,13 +11,10 @@ import {
 import * as fs from 'fs' ;
 import {Validator} from "jsonschema";
 
-let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();  
+const  hex_digit =  '(?:[0-9a-fA-F])';
 
-
-const  hex_digit =  '(?:\\d|[a-fA-F])';
-
-const  simple_label = '(?:[:alpha:]|_)(?:[:alpha:]|\\d|[-/_])*';
-const  quoted_label = '(?:[:alpha:]|\\d|[-/_:\\.])+';
+const  simple_label = '(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|[-/_])*';
+const  quoted_label = '(?:\\p{Alpha}|\\d|[-/_:\\.])+';
 const  exponent = '(?:e[+-]?\\d+)';
 const  path_character = '[^\\s#\\/\\\\,<>\\?\\(\\)\\[\\]\\{\\}]';
 const  path_component = `(?:\\/${path_character}+)`;
@@ -26,7 +23,7 @@ const  file = `${path_component}`;
 const  local = `(?:(?:\\.\\.?|~)?${directory}${file})`;
 const  h16 = `(?:${hex_digit}{1,4})`;
 const  dec_octet = `(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)`;
-const  unreserved = `(?:[:alpha:]|\\d|[-\\._~])`;
+const  unreserved = `(?:\\p{Alpha}|\\d|[-\\._~])`;
 const  IPv4address = `(?:${dec_octet}\\.${dec_octet}\\.${dec_octet}\\.${dec_octet})`;
 const  ls32 = `(?:${h16}:${h16}|${IPv4address})`;
 const  scheme = '(?:https?)';
@@ -52,7 +49,7 @@ const  authority = `(?:(?:${userinfo}@)?${host}(?::${port})?)`;
 const  url =
     `(?:${scheme}:\\/${authority}${directory}${file}(?:\\\\?${query})?(?:#${fragment})?)`;
 
-const  bash_env_var = `(?:(?:[:alpha:]|_)(?:[:alpha:]|\d|_)*)`;
+const  bash_env_var = `(?:(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|_)*)`;
 const  posix_env_var_char = `(?:\\["\\abfnrtv]|[^"\\=])`;
 const  posix_env_var = `(?:${posix_env_var_char}+)`;
 
@@ -226,19 +223,50 @@ const tmLanguage: TmLanguage = {
 
             patterns: [
                 {
-                    match: "____IMPOSSIBLE_IN_JSON_____",
-                    name: "",
+                    match: `(${local})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+                    captures: {
+                        "1": { name: "string.unquoted.file.dhall meta.path.file.dhall" },
+                        "2": { name: "storage.modifier.hash.dhall" },
+                        "3": { name: "punctuation.separator.colon.dhall" },
+                        "4": { name: "constant.numeric.integer.hash.dhall" },
+                        "5": { name: "storage.modifier.as.dhall" },
+                        "6": { name: `storage.type.dhall` }
+                    },
                     patterns: []
                 }]
         },
         env: {
-
             patterns: [
                 {
-                    match: "____IMPOSSIBLE_IN_JSON_____",
-                    name: "",
+                    match: `(env)(:)(${bash_env_var})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+                    captures: {
+                        "1": { name: "storage.modifier.environment-variable.dhall" },
+                        "2": { name: "punctuation.separator.colon.dhalll" },
+                        "3": { name: "string.unquoted.environment-variable.dhall" },
+                        "4": { name: `storage.modifier.hash.dhall` },
+                        "5": { name: "punctuation.separator.colon.dhall" },
+                        "6": { name: "constant.numeric.integer.hash.dhall" },
+                        "7": { name: "storage.modifier.as.dhall"},
+                        "8": { name: `storage.type.dhall` }
+                    },
                     patterns: []
-                }]
+                },
+                {
+                    match: `(env)(:)(")(${posix_env_var})(")(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+                    captures: {
+                        "1" : { name: "storage.modifier.environment-variable.dhall" },
+                        "2" : { name: "punctuation.separator.colon.dhall" },
+                        "3" : { name: "punctuation.definition.string.begin.dhall" },
+                        "4" : { name: "string.quoted.double.environment-variable.dhall" },
+                        "5" : { name: "punctuation.definition.string.end.dhall" },
+                        "6" : { name: "storage.modifier.hash.dhall" },
+                        "7" : { name: "punctuation.separator.colon.dhall" },
+                        "8" : { name: "constant.numeric.integer.hash.dhall" },
+                        "9" : { name: "storage.modifier.as.dhall" },
+                        "10": { name: `storage.type.dhall` }
+                    }
+                }
+            ]
         },
         operators: {
             patterns: [
@@ -299,7 +327,8 @@ const tmLanguage: TmLanguage = {
 
             patterns: [
                 {
-                    comment: "TODO: is it possible (and necessary?) to define big meta scope for let?",
+                    // FIXME: define constants as constants inside of let expressions
+                    // ! good scope is 'variable.other.constant.ts'
                     patterns: [
                         {
                             match: "\\blet\\b",
@@ -372,26 +401,36 @@ const tmLanguage: TmLanguage = {
                     ]
                 }]
         },
-        label: {
-
+        label: { 
             patterns: [
+                // * syntatically two cases are the same, but makes sense to distinguish lower-case variables from upper-case types
+                // 
                 {
                     name: "meta.label.dhall",
                     patterns: [{
                         name: "meta.label.dhall",
-                        match: "(?:[a-zA-Z]|_)(?:\\w|[-/_])*"
+                        match: "(?:[a-z]|_)(?:\\w|[-/_])*"
                     }, {
-                        name: "metal.label.quoted.dhall",
+                        name: "entity.name.type.dhall",
+                        match: "(?:[A-Z])(?:\\w|[-/_])*"
+                    }, {
+                        name: "meta.label.quoted.dhall",
                         begin: "`",
                         end: "`",
                         patterns: [{
-                            name: "meta.label.dhall",
-                            match: "[\\w\\-/_:\\.]+"
-                        }],
+                              name: "meta.label.dhall",
+                              match: "(?:\\p{Lower})[\\w\\-/_:\\.]*"
+                            },
+                            {
+                                name: "entity.name.type.dhall",
+                                match: "(?:\\p{^Lower})[\\w\\-/_:\\.]*"
+                            }
+                        ],
                         beginCaptures: { "0": { name: "punctuation.section.backtick.begin.dhall" } },
                         endCaptures: { "0": { name: "punctuation.section.backtick.end.dhall" } }
                     }]
-                }]
+                }
+            ]
         },
         record: {
 
@@ -415,7 +454,6 @@ const tmLanguage: TmLanguage = {
                             include: "#expression"
                         },
                         {
-                            comment: " FIXME: punctuation? is not defined in textmate grammar reference",
                             begin: ":",
                             beginCaptures: {
                                 "0": {
@@ -437,7 +475,6 @@ const tmLanguage: TmLanguage = {
                             ]
                         },
                         {
-                            comment: " FIXME: punctuation? is not defined in textmate grammar reference",
                             begin: "=",
                             beginCaptures: {
                                 "0": {
@@ -462,7 +499,7 @@ const tmLanguage: TmLanguage = {
                             include: "#assignment"
                         },
                         {
-                            comment: "FIXME: entity.name.tag? label",
+                            // FIXME: see union
                             include: "#label"
                         }
                     ]
@@ -490,7 +527,6 @@ const tmLanguage: TmLanguage = {
                             include: "#comments"
                         },
                         {
-                            comment: " FIXME: punctuation? is not defined in textmate grammar reference",
                             begin: ":",
                             beginCaptures: {
                                 "0": {
@@ -512,7 +548,6 @@ const tmLanguage: TmLanguage = {
                             ]
                         },
                         {
-                            comment: " FIXME: punctuation? is not defined in textmate grammar reference",
                             begin: "=",
                             beginCaptures: {
                                 "0": {
@@ -537,7 +572,12 @@ const tmLanguage: TmLanguage = {
                             include: "#assignment"
                         },
                         {
-                            comment: "FIXME: entity.name.tag? label",
+                            // FIXME: one of:
+                            // ! meta.object-literal.key.ts
+                            // ! variable.object.property.ts
+                            // ! meta.definition.property.ts
+                            // ! meta.field.declaration.ts
+                            // ! besides would be nice to highlight | inside union somehow
                             include: "#label"
                         }
                     ]
@@ -599,6 +639,13 @@ const tmLanguage: TmLanguage = {
     scopeName: "source.dhall"
 }
 
+// ? _.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"
+// ? ~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~.
+// ? .~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~
+
+
+let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();  
+
 const json = Convert.tmLanguageToJson(tmLanguage);
 
 // * in principle we statically validate the schema already via the model, 
@@ -616,6 +663,3 @@ if (validationResult.valid) {
 }
 
 
-
-// ts-node, tsc
-// console.log(url);

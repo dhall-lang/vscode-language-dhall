@@ -2,7 +2,7 @@
     "name": "dhall-lang",
     "displayName": "Dhall Language Support",
     "description": "Syntax highlighting for the dhall programming language",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "preview": true,
     "publisher": "panaeon",
     "engines": {
