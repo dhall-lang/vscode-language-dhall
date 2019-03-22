@@ -55,7 +55,7 @@ const posix_env_var = `(?:${posix_env_var_char}+)`;
 
 
 
-
+// TODO: align with V6 standard
 
 const tmLanguage: TmLanguage = {
     name: "Dhall",
@@ -82,7 +82,7 @@ const tmLanguage: TmLanguage = {
             },
             {
                 name: "entity.name.function",
-                match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
+                match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
             },
             {
                 name: "support.class.dhall",
@@ -334,7 +334,7 @@ const tmLanguage: TmLanguage = {
                             name: "keyword.other.let.dhall"
                         }
                     },
-                    end: "(?=\\bin\\b)|(?=\\let\\b)", // ? dangling in problem
+                    end: "(?=\\bin\\b)|(?=\\let\\b)", // dangling in problem
                     endCaptures: {
                         "0": {
                             name: "keyword.other.in.dhall"
@@ -468,6 +468,42 @@ const tmLanguage: TmLanguage = {
                 }
             ]
         },
+        labelPropertyType: { // * { foo : Text } 
+            patterns: [
+                {
+                    name: "constant.other.declaration.dhall",
+                    patterns: [{
+                        name: "constant.other.declaration.dhall",
+                        match: `${simple_label}(?=\\s*:)`
+                    }, {
+                        match: `(\`)(${quoted_label})(\`)`,
+                        captures: {
+                            "1": { name: "punctuation.section.backtick.begin.dhall" },
+                            "2": { name: "constant.other.declaration.quoted.dhall" },
+                            "3": { name: "punctuation.section.backtick.end.dhall" }
+                        }
+                    }]
+                }
+            ]
+        },
+        labelPropertyVar: { // * { foo = "123" } 
+            patterns: [
+                {
+                    name: "variable.object.property.dhall",
+                    patterns: [{
+                        name: "variable.object.property.dhall",
+                        match: `${simple_label}(?=\\s*=)`
+                    }, {
+                        match: `(\`)(${quoted_label})(\`)`,
+                        captures: {
+                            "1": { name: "punctuation.section.backtick.begin.dhall" },
+                            "2": { name: "variable.object.property.quoted.dhall" },
+                            "3": { name: "punctuation.section.backtick.end.dhall" }
+                        }
+                    }]
+                }
+            ]
+        },
         record: {
 
             patterns: [
@@ -486,9 +522,7 @@ const tmLanguage: TmLanguage = {
                         }
                     },
                     patterns: [
-                        {
-                            include: "#expression"
-                        },
+                        
                         {
                             begin: ":",
                             beginCaptures: {
@@ -535,7 +569,12 @@ const tmLanguage: TmLanguage = {
                             include: "#assignment"
                         },
                         {
-                            // FIXME: see union
+                            include: "#labelPropertyVar"
+                        },
+                        {
+                            include: "#labelPropertyType"
+                        },
+                        {
                             include: "#label"
                         }
                     ]
@@ -566,7 +605,6 @@ const tmLanguage: TmLanguage = {
                             begin: ":",
                             beginCaptures: {
                                 "0": {
-
                                     name: "punctuation.separator.dictionary.key-value.dhall"
                                 }
                             },
@@ -608,12 +646,12 @@ const tmLanguage: TmLanguage = {
                             include: "#assignment"
                         },
                         {
-                            // FIXME: one of:
-                            // ! meta.object-literal.key.ts
-                            // ! variable.object.property.ts
-                            // ! meta.definition.property.ts
-                            // ! meta.field.declaration.ts
-                            // ! besides would be nice to highlight | inside union somehow
+                            include: "#labelPropertyVar"
+                        },
+                        {
+                            include: "#labelPropertyType"
+                        },
+                        {
                             include: "#label"
                         }
                     ]
