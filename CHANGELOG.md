@@ -3,6 +3,9 @@ All notable changes to the "dhall-lang" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.3]
+- Highlight bind variables in let expression
+
 ## [0.0.2]
 - Fixed URLs, Files and environment variables
 - Highlighting upper case labels as types

@@ -8,50 +8,50 @@ import {
     , Convert
 } from "./model/TmLanguage";
 
-import * as fs from 'fs' ;
-import {Validator} from "jsonschema";
+import * as fs from 'fs';
+import { Validator } from "jsonschema";
 
-const  hex_digit =  '(?:[0-9a-fA-F])';
+const hex_digit = '(?:[0-9a-fA-F])';
 
-const  simple_label = '(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|[-/_])*';
-const  quoted_label = '(?:\\p{Alpha}|\\d|[-/_:\\.])+';
-const  exponent = '(?:e[+-]?\\d+)';
-const  path_character = '[^\\s#\\/\\\\,<>\\?\\(\\)\\[\\]\\{\\}]';
-const  path_component = `(?:\\/${path_character}+)`;
-const  directory = `(?:${path_component}*)`;
-const  file = `${path_component}`;
-const  local = `(?:(?:\\.\\.?|~)?${directory}${file})`;
-const  h16 = `(?:${hex_digit}{1,4})`;
-const  dec_octet = `(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)`;
-const  unreserved = `(?:\\p{Alpha}|\\d|[-\\._~])`;
-const  IPv4address = `(?:${dec_octet}\\.${dec_octet}\\.${dec_octet}\\.${dec_octet})`;
-const  ls32 = `(?:${h16}:${h16}|${IPv4address})`;
-const  scheme = '(?:https?)';
-const  pct_encoded = `(?:%${hex_digit}{2})`;
-const  sub_delims = `[!\\$&''\\(\\)\\*\\+,;=]`;
-const  userinfo = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims}|:)*)`;
-const  reg_name = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims})*)`;
-const  pchar = `(?:${unreserved}|${pct_encoded}|${sub_delims}|[:@])`;
-const  query = `(?:(?:${pchar}|[\\/?])*)`;
-const  fragment = `${query}`;
-const  IPvFuture = `(?:v${hex_digit}+\\.(?:${unreserved}|${sub_delims}|:)+)`;
-const  IPv6address =
-      `(?:(?:${h16}:){6}${ls32}|::(?:${h16}:){5}${ls32}|(?:${h16})?::` 
+const simple_label = '(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|[-/_])*';
+const quoted_label = '(?:\\p{Alpha}|\\d|[-/_:\\.])+';
+const exponent = '(?:e[+-]?\\d+)';
+const path_character = '[^\\s#\\/\\\\,<>\\?\\(\\)\\[\\]\\{\\}]';
+const path_component = `(?:\\/${path_character}+)`;
+const directory = `(?:${path_component}*)`;
+const file = `${path_component}`;
+const local = `(?:(?:\\.\\.?|~)?${directory}${file})`;
+const h16 = `(?:${hex_digit}{1,4})`;
+const dec_octet = `(?:25[0-5]|2[0-4]\\d|1\\d{2}|[1-9]\\d|\\d)`;
+const unreserved = `(?:\\p{Alpha}|\\d|[-\\._~])`;
+const IPv4address = `(?:${dec_octet}\\.${dec_octet}\\.${dec_octet}\\.${dec_octet})`;
+const ls32 = `(?:${h16}:${h16}|${IPv4address})`;
+const scheme = '(?:https?)';
+const pct_encoded = `(?:%${hex_digit}{2})`;
+const sub_delims = `[!\\$&''\\(\\)\\*\\+,;=]`;
+const userinfo = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims}|:)*)`;
+const reg_name = `(?:(?:${unreserved}|${pct_encoded}|${sub_delims})*)`;
+const pchar = `(?:${unreserved}|${pct_encoded}|${sub_delims}|[:@])`;
+const query = `(?:(?:${pchar}|[\\/?])*)`;
+const fragment = `${query}`;
+const IPvFuture = `(?:v${hex_digit}+\\.(?:${unreserved}|${sub_delims}|:)+)`;
+const IPv6address =
+    `(?:(?:${h16}:){6}${ls32}|::(?:${h16}:){5}${ls32}|(?:${h16})?::`
     + `(?:${h16}:){4}${ls32}|(?:(?:${h16}:){1,}${h16})?::(?:${h16}:){3}`
     + `${ls32}|(?:(?:${h16}:){2,}${h16})?::(?:${h16}:){2}${ls32}|`
     + `(?:(?:${h16}:){3,}${h16})?::(?:${h16}:){1}${ls32}|(?:(?:${h16}:){4,}`
     + `${h16})?::${ls32}|(?:(?:${h16}:){5,}${h16})?::${h16}|(?:(?:${h16}:)`
     + `{6,}${h16})?::)`;
-const  IP_literal = `(?:\\[(?:${IPv6address}|${IPvFuture})\\])`;
-const  host = `(?:${IP_literal}|${IPv4address}|${reg_name})`;
-const  port = '(?:\\d*)';
-const  authority = `(?:(?:${userinfo}@)?${host}(?::${port})?)`;
-const  url =
+const IP_literal = `(?:\\[(?:${IPv6address}|${IPvFuture})\\])`;
+const host = `(?:${IP_literal}|${IPv4address}|${reg_name})`;
+const port = '(?:\\d*)';
+const authority = `(?:(?:${userinfo}@)?${host}(?::${port})?)`;
+const url =
     `(?:${scheme}:\\/${authority}${directory}${file}(?:\\\\?${query})?(?:#${fragment})?)`;
 
-const  bash_env_var = `(?:(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|_)*)`;
-const  posix_env_var_char = `(?:\\["\\abfnrtv]|[^"\\=])`;
-const  posix_env_var = `(?:${posix_env_var_char}+)`;
+const bash_env_var = `(?:(?:\\p{Alpha}|_)(?:\\p{Alpha}|\\d|_)*)`;
+const posix_env_var_char = `(?:\\["\\abfnrtv]|[^"\\=])`;
+const posix_env_var = `(?:${posix_env_var_char}+)`;
 
 
 
@@ -96,9 +96,6 @@ const tmLanguage: TmLanguage = {
         expression: {
             patterns: [
                 {
-                    include: "#keywords"
-                },
-                {
                     include: "#forall"
                 },
                 {
@@ -125,9 +122,7 @@ const tmLanguage: TmLanguage = {
                 {
                     include: "#env"
                 },
-                {
-                    include: "#label"
-                },
+
                 {
                     include: "#record"
                 },
@@ -151,6 +146,11 @@ const tmLanguage: TmLanguage = {
                 },
                 {
                     include: "#let"
+                },
+                {
+                    include: "#keywords"
+                }, {
+                    include: "#label"
                 }
             ]
         },
@@ -185,7 +185,7 @@ const tmLanguage: TmLanguage = {
         },
         numbers: {
             patterns: [
-                
+
                 {
                     name: "constant.numeric.float.dhall",
                     match: "[+-]?\\d+(?:(\\.)\\d+(?:e[+-]?\\d+)?|(?:e[+-]?\\d+))"
@@ -207,9 +207,9 @@ const tmLanguage: TmLanguage = {
                 {
                     match: `(${url})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
                     captures: {
-                        "1": { 
+                        "1": {
                             name: `markup.underline.url.dhall`
-                            },
+                        },
                         "2": { name: `storage.modifier.hash.dhall` },
                         "3": { name: `punctuation.separator.colon.dhall` },
                         "4": { name: `constant.numeric.integer.hash.dhall` },
@@ -246,7 +246,7 @@ const tmLanguage: TmLanguage = {
                         "4": { name: `storage.modifier.hash.dhall` },
                         "5": { name: "punctuation.separator.colon.dhall" },
                         "6": { name: "constant.numeric.integer.hash.dhall" },
-                        "7": { name: "storage.modifier.as.dhall"},
+                        "7": { name: "storage.modifier.as.dhall" },
                         "8": { name: `storage.type.dhall` }
                     },
                     patterns: []
@@ -254,15 +254,15 @@ const tmLanguage: TmLanguage = {
                 {
                     match: `(env)(:)(")(${posix_env_var})(")(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
                     captures: {
-                        "1" : { name: "storage.modifier.environment-variable.dhall" },
-                        "2" : { name: "punctuation.separator.colon.dhall" },
-                        "3" : { name: "punctuation.definition.string.begin.dhall" },
-                        "4" : { name: "string.quoted.double.environment-variable.dhall" },
-                        "5" : { name: "punctuation.definition.string.end.dhall" },
-                        "6" : { name: "storage.modifier.hash.dhall" },
-                        "7" : { name: "punctuation.separator.colon.dhall" },
-                        "8" : { name: "constant.numeric.integer.hash.dhall" },
-                        "9" : { name: "storage.modifier.as.dhall" },
+                        "1": { name: "storage.modifier.environment-variable.dhall" },
+                        "2": { name: "punctuation.separator.colon.dhall" },
+                        "3": { name: "punctuation.definition.string.begin.dhall" },
+                        "4": { name: "string.quoted.double.environment-variable.dhall" },
+                        "5": { name: "punctuation.definition.string.end.dhall" },
+                        "6": { name: "storage.modifier.hash.dhall" },
+                        "7": { name: "punctuation.separator.colon.dhall" },
+                        "8": { name: "constant.numeric.integer.hash.dhall" },
+                        "9": { name: "storage.modifier.as.dhall" },
                         "10": { name: `storage.type.dhall` }
                     }
                 }
@@ -327,16 +327,46 @@ const tmLanguage: TmLanguage = {
 
             patterns: [
                 {
-                    // FIXME: define constants as constants inside of let expressions
-                    // ! good scope is 'variable.other.constant.ts'
+                    name: "meta.declaration.expression.let.dhall",
+                    begin: "\\blet\\b",
+                    beginCaptures: {
+                        "0": {
+                            name: "keyword.other.let.dhall"
+                        }
+                    },
+                    end: "(?=\\bin\\b)|(?=\\let\\b)", // ? dangling in problem
+                    endCaptures: {
+                        "0": {
+                            name: "keyword.other.in.dhall"
+                        }
+                    },
                     patterns: [
                         {
-                            match: "\\blet\\b",
-                            name: "keyword.other.let.dhall"
+                            include: "#labelBind"
                         },
                         {
-                            match: "\\bin\\b",
-                            name: "keyword.other.in.dhall"
+                            begin: ":",
+                            end: "(?==)",
+                            patterns: [{
+                                include: "#expression"
+                            }]
+                        },
+                        {
+                            begin: "=",
+                            beginCaptures: {
+                                "0": {
+
+                                    name: "keyword.operator.assignment.dhall"
+                                }
+                            },
+                            end: "(?=\\bin\\b)|(?=\\let\\b)",
+
+                            name: "meta.declaration.foobar.dhall",
+                            patterns: [
+                                {
+                                    include: "#expression"
+                                }
+                            ]
                         }
                     ]
                 }]
@@ -401,33 +431,39 @@ const tmLanguage: TmLanguage = {
                     ]
                 }]
         },
-        label: { 
+        label: {
             patterns: [
-                // * syntatically two cases are the same, but makes sense to distinguish lower-case variables from upper-case types
-                // 
+
                 {
                     name: "meta.label.dhall",
                     patterns: [{
                         name: "meta.label.dhall",
-                        match: "(?:[a-z]|_)(?:\\w|[-/_])*"
+                        match: `${simple_label}`
                     }, {
-                        name: "entity.name.type.dhall",
-                        match: "(?:[A-Z])(?:\\w|[-/_])*"
+                        match: `(\`)(${quoted_label})(\`)`,
+                        captures: {
+                            "1": { name: "punctuation.section.backtick.begin.dhall" },
+                            "2": { name: "meta.label.quoted.dhall" },
+                            "3": { name: "punctuation.section.backtick.end.dhall" }
+                        }
+                    }]
+                }
+            ]
+        },
+        labelBind: { // * defines constant value in let expression
+            patterns: [
+                {
+                    name: "variable.other.constant.dhall",
+                    patterns: [{
+                        name: "variable.other.constant.dhall",
+                        match: `${simple_label}`
                     }, {
-                        name: "meta.label.quoted.dhall",
-                        begin: "`",
-                        end: "`",
-                        patterns: [{
-                              name: "meta.label.dhall",
-                              match: "(?:\\p{Lower})[\\w\\-/_:\\.]*"
-                            },
-                            {
-                                name: "entity.name.type.dhall",
-                                match: "(?:\\p{^Lower})[\\w\\-/_:\\.]*"
-                            }
-                        ],
-                        beginCaptures: { "0": { name: "punctuation.section.backtick.begin.dhall" } },
-                        endCaptures: { "0": { name: "punctuation.section.backtick.end.dhall" } }
+                        match: `(\`)(${quoted_label})(\`)`,
+                        captures: {
+                            "1": { name: "punctuation.section.backtick.begin.dhall" },
+                            "2": { name: "variable.other.constant.quoted.dhall" },
+                            "3": { name: "punctuation.section.backtick.end.dhall" }
+                        }
                     }]
                 }
             ]
@@ -644,7 +680,7 @@ const tmLanguage: TmLanguage = {
 // ? .~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~
 
 
-let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();  
+let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();
 
 const json = Convert.tmLanguageToJson(tmLanguage);
 
