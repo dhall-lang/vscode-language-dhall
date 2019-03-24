@@ -471,15 +471,15 @@ const tmLanguage: TmLanguage = {
         labelPropertyType: { // * { foo : Text } 
             patterns: [
                 {
-                    name: "constant.other.declaration.dhall",
+                    name: "entity.other.attribute-name.dhall",
                     patterns: [{
-                        name: "constant.other.declaration.dhall",
+                        name: "entity.other.attribute-name.dhall",
                         match: `${simple_label}(?=\\s*:)`
                     }, {
                         match: `(\`)(${quoted_label})(\`)`,
                         captures: {
                             "1": { name: "punctuation.section.backtick.begin.dhall" },
-                            "2": { name: "constant.other.declaration.quoted.dhall" },
+                            "2": { name: "entity.other.attribute-name.quoted.dhall" },
                             "3": { name: "punctuation.section.backtick.end.dhall" }
                         }
                     }]

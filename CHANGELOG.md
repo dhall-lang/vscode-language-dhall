@@ -3,6 +3,8 @@ All notable changes to the "dhall-lang" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.4]
+- Change type declaration inside record to `entity.other.attribute-name` so it is visually distinct from the type itself.
 ## [0.0.3]
 - Highlight bind variables in let expression
 - Highlight fields in unions and records
