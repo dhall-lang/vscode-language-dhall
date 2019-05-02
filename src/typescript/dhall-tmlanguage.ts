@@ -1,15 +1,10 @@
 "use strict";
 
-import {
-    TmLanguage
-    , Pattern
-    , Captures
-    , Grammar
-    , Convert
-} from "./model/TmLanguage";
+import { TmLanguage } from "./TmLanguageModel";
 
 import * as fs from 'fs';
-import { Validator } from "jsonschema";
+import * as Ajv from 'ajv';
+
 
 const hex_digit = '(?:[0-9a-fA-F])';
 
@@ -122,7 +117,6 @@ const tmLanguage: TmLanguage = {
                 {
                     include: "#env"
                 },
-
                 {
                     include: "#record"
                 },
@@ -149,39 +143,38 @@ const tmLanguage: TmLanguage = {
                 },
                 {
                     include: "#keywords"
-                }, {
+                },
+                {
                     include: "#label"
                 }
             ]
         },
         strings: {
 
+
+            name: "string.quoted.double.dhall",
+            begin: "\"",
+            end: "\"",
             patterns: [
                 {
-                    name: "string.quoted.double.dhall",
-                    begin: "\"",
-                    end: "\"",
+                    name: "constant.other.placeholder.dhall",
+                    begin: "\\$\\{",
+                    beginCaptures: { "0": { name: "punctuation.section.curly.begin.dhall" } },
+                    end: "\\}",
+                    endCaptures: { "0": { name: "punctuation.section.curly.end.dhall" } },
                     patterns: [
                         {
-                            name: "constant.other.placeholder.dhall",
-                            begin: "\\$\\{",
-                            beginCaptures: { "0": { name: "punctuation.section.curly.begin.dhall" } },
-                            end: "\\}",
-                            endCaptures: { "0": { name: "punctuation.section.curly.end.dhall" } },
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
-                        },
-                        {
-                            name: "constant.character.escape.sequence.dhall",
-                            match: "\\\\(?:[\"$\\\\/bfnrt]|[u][a-fA-F0-9]{4})"
-
+                            include: "#expression"
                         }
                     ]
+                },
+                {
+                    name: "constant.character.escape.sequence.dhall",
+                    match: "\\\\(?:[\"$\\\\/bfnrt]|[u][a-fA-F0-9]{4})"
+
                 }
             ]
+
         },
         numbers: {
             patterns: [
@@ -203,37 +196,30 @@ const tmLanguage: TmLanguage = {
         },
         url: {
 
-            patterns: [
-                {
-                    match: `(${url})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
-                    captures: {
-                        "1": {
-                            name: `markup.underline.url.dhall`
-                        },
-                        "2": { name: `storage.modifier.hash.dhall` },
-                        "3": { name: `punctuation.separator.colon.dhall` },
-                        "4": { name: `constant.numeric.integer.hash.dhall` },
-                        "5": { name: `storage.modifier.as.dhall` },
-                        "6": { name: `storage.type.dhall` },
-                    },
-                    patterns: []
-                }]
+            match: `(${url})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+            captures: {
+                "1": {
+                    name: `markup.underline.url.dhall`
+                },
+                "2": { name: `storage.modifier.hash.dhall` },
+                "3": { name: `punctuation.separator.colon.dhall` },
+                "4": { name: `constant.numeric.integer.hash.dhall` },
+                "5": { name: `storage.modifier.as.dhall` },
+                "6": { name: `storage.type.dhall` },
+            }
+
         },
         file: {
+            match: `(${local})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
+            captures: {
+                "1": { name: "string.unquoted.file.dhall meta.path.file.dhall" },
+                "2": { name: "storage.modifier.hash.dhall" },
+                "3": { name: "punctuation.separator.colon.dhall" },
+                "4": { name: "constant.numeric.integer.hash.dhall" },
+                "5": { name: "storage.modifier.as.dhall" },
+                "6": { name: `storage.type.dhall` }
+            }
 
-            patterns: [
-                {
-                    match: `(${local})(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
-                    captures: {
-                        "1": { name: "string.unquoted.file.dhall meta.path.file.dhall" },
-                        "2": { name: "storage.modifier.hash.dhall" },
-                        "3": { name: "punctuation.separator.colon.dhall" },
-                        "4": { name: "constant.numeric.integer.hash.dhall" },
-                        "5": { name: "storage.modifier.as.dhall" },
-                        "6": { name: `storage.type.dhall` }
-                    },
-                    patterns: []
-                }]
         },
         env: {
             patterns: [
@@ -248,8 +234,7 @@ const tmLanguage: TmLanguage = {
                         "6": { name: "constant.numeric.integer.hash.dhall" },
                         "7": { name: "storage.modifier.as.dhall" },
                         "8": { name: `storage.type.dhall` }
-                    },
-                    patterns: []
+                    }
                 },
                 {
                     match: `(env)(:)(")(${posix_env_var})(")(?:\\s*(sha256)(:)(${hex_digit}{64}))?(?:\\s*(as)\\s*(Text))?`,
@@ -306,410 +291,357 @@ const tmLanguage: TmLanguage = {
             ]
         },
         forall: {
-
-            patterns: [
-                {
-                    match: "\\bforall\\b|∀",
-                    name: "storage.modifier.universal-quantifier.dhall",
-                    patterns: []
-                }]
+            match: "\\bforall\\b|∀",
+            name: "storage.modifier.universal-quantifier.dhall"
         },
         lambda: {
-
-            patterns: [
-                {
-                    match: "λ|\\\\",
-                    name: "keyword.control.dhall",
-                    patterns: []
-                }]
+            match: "λ|\\\\",
+            name: "keyword.control.dhall"
         },
         let: {
-
+            name: "meta.declaration.expression.let.dhall",
+            begin: "\\blet\\b",
+            beginCaptures: {
+                "0": {
+                    name: "keyword.other.let.dhall"
+                }
+            },
+            end: "(?=\\bin\\b)|(?=\\let\\b)", // dangling in problem
+            endCaptures: {
+                "0": {
+                    name: "keyword.other.in.dhall"
+                }
+            },
             patterns: [
                 {
-                    name: "meta.declaration.expression.let.dhall",
-                    begin: "\\blet\\b",
+                    include: "#labelBind"
+                },
+                {
+                    begin: ":",
+                    end: "(?==)",
+                    patterns: [{
+                        include: "#expression"
+                    }]
+                },
+                {
+                    begin: "=",
                     beginCaptures: {
                         "0": {
-                            name: "keyword.other.let.dhall"
+                            name: "keyword.operator.assignment.dhall"
                         }
                     },
-                    end: "(?=\\bin\\b)|(?=\\let\\b)", // dangling in problem
-                    endCaptures: {
-                        "0": {
-                            name: "keyword.other.in.dhall"
-                        }
-                    },
+                    end: "(?=\\bin\\b)|(?=\\let\\b)",
+                    name: "meta.declaration.foobar.dhall",
                     patterns: [
                         {
-                            include: "#labelBind"
-                        },
-                        {
-                            begin: ":",
-                            end: "(?==)",
-                            patterns: [{
-                                include: "#expression"
-                            }]
-                        },
-                        {
-                            begin: "=",
-                            beginCaptures: {
-                                "0": {
-
-                                    name: "keyword.operator.assignment.dhall"
-                                }
-                            },
-                            end: "(?=\\bin\\b)|(?=\\let\\b)",
-
-                            name: "meta.declaration.foobar.dhall",
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
+                            include: "#expression"
                         }
                     ]
-                }]
-        },
-        assignment: {
-            patterns: [
-                {
-                    name: "keyword.operator.assignment.dhall",
-                    match: "="
                 }
             ]
         },
+        assignment: {
+            name: "keyword.operator.assignment.dhall",
+            match: "="
+        },
         line_comment: {
-            patterns: [
-                {
-                    name: "comment.line.double-dash.dhall",
-                    begin: "--",
-                    end: "$",
-                    patterns: []
-                }]
+            name: "comment.line.double-dash.dhall",
+            begin: "--",
+            end: "$"
         },
         block_comment: {
-            patterns: [
-                {
-                    name: "comment.block.dhall",
-                    begin: "\\{-",
-                    end: "-\\}",
-                    patterns: [{ include: "#block_comment" }]
-                }]
+            name: "comment.block.dhall",
+            begin: "\\{-",
+            end: "-\\}",
+            patterns: [{ include: "#block_comment" }]
         },
         comments: {
             patterns: [{ include: "#line_comment" }, { include: "#block_comment" }]
         },
         single_strings: {
-
+            name: "string.quoted.single.dhall",
+            begin: "''$",
+            end: "''(?!')(?!\\$\\{)",
             patterns: [
                 {
-                    name: "string.quoted.single.dhall",
-                    begin: "''$",
-                    end: "''(?!')(?!\\$\\{)",
+                    name: "constant.character.escape.quotes.dhall",
+                    match: "'''"
+                },
+                {
+                    name: "constant.character.escape.interpolation.dhall",
+                    match: "''\\$\\{"
+                },
+                {
+                    name: "constant.other.placeholder.dhall",
+                    begin: "\\$\\{",
+                    beginCaptures: { "0": { name: "punctuation.section.curly.begin.dhall" } },
+                    end: "\\}",
+                    endCaptures: { "0": { name: "punctuation.section.curly.end.dhall" } },
                     patterns: [
                         {
-                            name: "constant.character.escape.quotes.dhall",
-                            match: "'''"
-                        },
-                        {
-                            name: "constant.character.escape.interpolation.dhall",
-                            match: "''\\$\\{"
-                        },
-                        {
-                            name: "constant.other.placeholder.dhall",
-                            begin: "\\$\\{",
-                            beginCaptures: { "0": { name: "punctuation.section.curly.begin.dhall" } },
-                            end: "\\}",
-                            endCaptures: { "0": { name: "punctuation.section.curly.end.dhall" } },
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
+                            include: "#expression"
                         }
                     ]
-                }]
+                }
+            ]
+
         },
         label: {
-            patterns: [
-
-                {
-                    name: "meta.label.dhall",
-                    patterns: [{
-                        name: "meta.label.dhall",
-                        match: `${simple_label}`
-                    }, {
-                        match: `(\`)(${quoted_label})(\`)`,
-                        captures: {
-                            "1": { name: "punctuation.section.backtick.begin.dhall" },
-                            "2": { name: "meta.label.quoted.dhall" },
-                            "3": { name: "punctuation.section.backtick.end.dhall" }
-                        }
-                    }]
+            name: "meta.label.dhall",
+            patterns: [{
+                name: "meta.label.dhall",
+                match: `${simple_label}`
+            }, {
+                match: `(\`)(${quoted_label})(\`)`,
+                captures: {
+                    "1": { name: "punctuation.section.backtick.begin.dhall" },
+                    "2": { name: "meta.label.quoted.dhall" },
+                    "3": { name: "punctuation.section.backtick.end.dhall" }
                 }
-            ]
+            }]
+
         },
         labelBind: { // * defines constant value in let expression
-            patterns: [
-                {
-                    name: "variable.other.constant.dhall",
-                    patterns: [{
-                        name: "variable.other.constant.dhall",
-                        match: `${simple_label}`
-                    }, {
-                        match: `(\`)(${quoted_label})(\`)`,
-                        captures: {
-                            "1": { name: "punctuation.section.backtick.begin.dhall" },
-                            "2": { name: "variable.other.constant.quoted.dhall" },
-                            "3": { name: "punctuation.section.backtick.end.dhall" }
-                        }
-                    }]
+            name: "variable.other.constant.dhall",
+            patterns: [{
+                name: "variable.other.constant.dhall",
+                match: `${simple_label}`
+            }, {
+                match: `(\`)(${quoted_label})(\`)`,
+                captures: {
+                    "1": { name: "punctuation.section.backtick.begin.dhall" },
+                    "2": { name: "variable.other.constant.quoted.dhall" },
+                    "3": { name: "punctuation.section.backtick.end.dhall" }
                 }
-            ]
+            }]
+
         },
         labelPropertyType: { // * { foo : Text } 
-            patterns: [
-                {
-                    name: "entity.other.attribute-name.dhall",
-                    patterns: [{
-                        name: "entity.other.attribute-name.dhall",
-                        match: `${simple_label}(?=\\s*:)`
-                    }, {
-                        match: `(\`)(${quoted_label})(\`)`,
-                        captures: {
-                            "1": { name: "punctuation.section.backtick.begin.dhall" },
-                            "2": { name: "entity.other.attribute-name.quoted.dhall" },
-                            "3": { name: "punctuation.section.backtick.end.dhall" }
-                        }
-                    }]
+
+            name: "constant.other.attribute-name.dhall",
+            patterns: [{
+                name: "constant.other.attribute-name.dhall",
+                match: `${simple_label}(?=\\s*:)`
+            }, {
+                match: `(\`)(${quoted_label})(\`)`,
+                captures: {
+                    "1": { name: "punctuation.section.backtick.begin.dhall" },
+                    "2": { name: "constant.other.attribute-name.quoted.dhall" },
+                    "3": { name: "punctuation.section.backtick.end.dhall" }
                 }
-            ]
+            }]
+
         },
         labelPropertyVar: { // * { foo = "123" } 
-            patterns: [
-                {
-                    name: "variable.object.property.dhall",
-                    patterns: [{
-                        name: "variable.object.property.dhall",
-                        match: `${simple_label}(?=\\s*=)`
-                    }, {
-                        match: `(\`)(${quoted_label})(\`)`,
-                        captures: {
-                            "1": { name: "punctuation.section.backtick.begin.dhall" },
-                            "2": { name: "variable.object.property.quoted.dhall" },
-                            "3": { name: "punctuation.section.backtick.end.dhall" }
-                        }
-                    }]
+            name: "variable.object.property.dhall",
+            patterns: [{
+                name: "variable.object.property.dhall",
+                match: `${simple_label}(?=\\s*=)`
+            }, {
+                match: `(\`)(${quoted_label})(\`)`,
+                captures: {
+                    "1": { name: "punctuation.section.backtick.begin.dhall" },
+                    "2": { name: "variable.object.property.quoted.dhall" },
+                    "3": { name: "punctuation.section.backtick.end.dhall" }
                 }
-            ]
+            }]
+
         },
         record: {
-
+            name: "meta.declaration.data.record.block.dhall",
+            begin: "\\{",
+            beginCaptures: {
+                "0": {
+                    name: "keyword.operator.record.begin.dhall"
+                }
+            },
+            end: "\\}",
+            endCaptures: {
+                "0": {
+                    name: "keyword.operator.record.end.dhall"
+                }
+            },
             patterns: [
+
                 {
-                    name: "meta.declaration.data.record.block.dhall",
-                    begin: "\\{",
+                    begin: ":",
                     beginCaptures: {
                         "0": {
-                            name: "keyword.operator.record.begin.dhall"
+                            name: "punctuation.separator.dictionary.key-value.dhall"
                         }
                     },
-                    end: "\\}",
+                    end: "(,)|(?=\\})",
                     endCaptures: {
-                        "0": {
-                            name: "keyword.operator.record.end.dhall"
+                        "1": {
+                            name: "punctuation.separator.dictionary.pair.dhall"
                         }
                     },
+                    name: "meta.declaration.data.record.type.dhall",
                     patterns: [
-                        
                         {
-                            begin: ":",
-                            beginCaptures: {
-                                "0": {
-
-                                    name: "punctuation.separator.dictionary.key-value.dhall"
-                                }
-                            },
-                            end: "(,)|(?=\\})",
-                            endCaptures: {
-                                "1": {
-                                    name: "punctuation.separator.dictionary.pair.dhall"
-                                }
-                            },
-                            name: "meta.declaration.data.record.type.dhall",
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
-                        },
-                        {
-                            begin: "=",
-                            beginCaptures: {
-                                "0": {
-
-                                    name: "punctuation.separator.dictionary.key-value.dhall"
-                                }
-                            },
-                            end: "(,)|(?=\\})",
-                            endCaptures: {
-                                "1": {
-                                    name: "punctuation.separator.dictionary.pair.dhall"
-                                }
-                            },
-                            name: "meta.declaration.data.record.literal.dhall",
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
-                        },
-                        {
-                            include: "#assignment"
-                        },
-                        {
-                            include: "#labelPropertyVar"
-                        },
-                        {
-                            include: "#labelPropertyType"
-                        },
-                        {
-                            include: "#label"
+                            include: "#expression"
                         }
                     ]
-                }]
+                },
+                {
+                    begin: "=",
+                    beginCaptures: {
+                        "0": {
+
+                            name: "punctuation.separator.dictionary.key-value.dhall"
+                        }
+                    },
+                    end: "(,)|(?=\\})",
+                    endCaptures: {
+                        "1": {
+                            name: "punctuation.separator.dictionary.pair.dhall"
+                        }
+                    },
+                    name: "meta.declaration.data.record.literal.dhall",
+                    patterns: [
+                        {
+                            include: "#expression"
+                        }
+                    ]
+                },
+                {
+                    include: "#assignment"
+                },
+                {
+                    include: "#labelPropertyVar"
+                },
+                {
+                    include: "#labelPropertyType"
+                },
+                {
+                    include: "#label"
+                }
+            ]
+
         },
         union: {
 
+
+            name: "meta.declaration.data.union.block.dhall",
+            begin: "<",
+            beginCaptures: {
+                "0": {
+                    name: "keyword.operator.union.begin.dhall"
+                }
+            },
+            end: ">",
+            endCaptures: {
+                "0": {
+                    name: "keyword.operator.union.end.dhall"
+                }
+            },
             patterns: [
                 {
-                    name: "meta.declaration.data.union.block.dhall",
-                    begin: "<",
+                    include: "#comments"
+                },
+                {
+                    begin: ":",
                     beginCaptures: {
                         "0": {
-                            name: "keyword.operator.union.begin.dhall"
+                            name: "punctuation.separator.dictionary.key-value.dhall"
                         }
                     },
-                    end: ">",
+                    end: "(\\|)|(?=\\>)",
                     endCaptures: {
-                        "0": {
-                            name: "keyword.operator.union.end.dhall"
+                        "1": {
+                            name: "punctuation.separator.dictionary.pair.dhall"
                         }
                     },
+                    name: "meta.declaration.data.union.type.dhall",
                     patterns: [
                         {
-                            include: "#comments"
-                        },
-                        {
-                            begin: ":",
-                            beginCaptures: {
-                                "0": {
-                                    name: "punctuation.separator.dictionary.key-value.dhall"
-                                }
-                            },
-                            end: "(\\|)|(?=\\>)",
-                            endCaptures: {
-                                "1": {
-                                    name: "punctuation.separator.dictionary.pair.dhall"
-                                }
-                            },
-                            name: "meta.declaration.data.union.type.dhall",
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
-                        },
-                        {
-                            begin: "=",
-                            beginCaptures: {
-                                "0": {
-
-                                    name: "punctuation.separator.dictionary.key-value.dhall"
-                                }
-                            },
-                            end: "(\\|)|(?=\\>)",
-                            endCaptures: {
-                                "1": {
-                                    name: "punctuation.separator.dictionary.pair.dhall"
-                                }
-                            },
-                            name: "meta.declaration.data.union.literal.dhall",
-                            patterns: [
-                                {
-                                    include: "#expression"
-                                }
-                            ]
-                        },
-                        {
-                            include: "#assignment"
-                        },
-                        {
-                            include: "#labelPropertyVar"
-                        },
-                        {
-                            include: "#labelPropertyType"
-                        },
-                        {
-                            include: "#label"
+                            include: "#expression"
                         }
                     ]
-                }]
+                },
+                {
+                    begin: "=",
+                    beginCaptures: {
+                        "0": {
+                            name: "punctuation.separator.dictionary.key-value.dhall"
+                        }
+                    },
+                    end: "(\\|)|(?=\\>)",
+                    endCaptures: {
+                        "1": {
+                            name: "punctuation.separator.dictionary.pair.dhall"
+                        }
+                    },
+                    name: "meta.declaration.data.union.literal.dhall",
+                    patterns: [
+                        {
+                            include: "#expression"
+                        }
+                    ]
+                },
+                {
+                    include: "#assignment"
+                },
+                {
+                    include: "#labelPropertyVar"
+                },
+                {
+                    include: "#labelPropertyType"
+                },
+                {
+                    include: "#label"
+                }
+            ]
+
         },
         list: {
-
+            name: "meta.brackets.list.dhall",
+            begin: "\\[",
+            beginCaptures: {
+                "0": {
+                    name: "punctuation.section.brackets.begin.list.dhall"
+                }
+            },
+            end: "\\]",
+            endCaptures: {
+                "0": {
+                    name: "punctuation.section.brackets.end.list.dhall"
+                }
+            },
             patterns: [
                 {
-                    name: "meta.brackets.list.dhall",
-                    begin: "\\[",
-                    beginCaptures: {
-                        "0": {
-                            name: "punctuation.section.brackets.begin.list.dhall"
-                        }
-                    },
-                    end: "\\]",
-                    endCaptures: {
-                        "0": {
-                            name: "punctuation.section.brackets.end.list.dhall"
-                        }
-                    },
-                    patterns: [
-                        {
-                            name: "punctuation.separator.sequence.list.dhall",
-                            match: ","
-                        },
-                        {
-                            include: "#expression"
-                        }
-                    ]
-                }]
+                    name: "punctuation.separator.sequence.list.dhall",
+                    match: ","
+                },
+                {
+                    include: "#expression"
+                }
+            ]
+
         },
         parens: {
-
+            name: "meta.parens.dhall",
+            begin: "\\(",
+            beginCaptures: {
+                "0": {
+                    name: "punctuation.section.parens.begin.dhall"
+                }
+            },
+            end: "\\)",
+            endCaptures: {
+                "0": {
+                    name: "punctuation.section.parens.end.dhall"
+                }
+            },
             patterns: [
                 {
-                    name: "meta.parens.dhall",
-                    begin: "\\(",
-                    beginCaptures: {
-                        "0": {
-                            name: "punctuation.section.parens.begin.dhall"
-                        }
-                    },
-                    end: "\\)",
-                    endCaptures: {
-                        "0": {
-                            name: "punctuation.section.parens.end.dhall"
-                        }
-                    },
-                    patterns: [
-                        {
-                            include: "#expression"
-                        }
-                    ]
-                }]
+                    include: "#expression"
+                }
+            ]
+
         }
     },
+    "$schema": "https://raw.githubusercontent.com/Septh/tmlanguage/master/tmLanguage.schema.json",
     scopeName: "source.dhall"
 }
 
@@ -718,22 +650,24 @@ const tmLanguage: TmLanguage = {
 // ? .~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~._.~"~
 
 
-let schema = fs.readFileSync('./extras/tmlanguage.json').toJSON();
+let schema = fs.readFileSync('./src/typescript/tmlanguage.schema.json').toString();
 
-const json = Convert.tmLanguageToJson(tmLanguage);
+let ajv = new Ajv({ verbose: true });
 
-// * in principle we statically validate the schema already via the model, 
-// * but let's do it again just to be sure
-const validator = new Validator();
+ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 
-const validationResult = validator.validate(json, schema);
+const validate = ajv.compile(JSON.parse(schema));
 
-if (validationResult.valid) {
-    console.log(json);
-} else {
+const json = JSON.stringify(tmLanguage);
+
+const valid = validate(tmLanguage);
+
+if (!valid) {
     console.error("** Output json doesn't match tmLanguage schema**");
-    console.error(validationResult.errors);
+    console.error(validate.errors);
     process.exit(1);
+} else {
+    console.log(JSON.stringify(tmLanguage));
 }
 
 
