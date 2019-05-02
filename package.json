@@ -61,5 +61,9 @@
         "tsc": "^1.20150623.0",
         "typescript": "^3.3.3"
     },
+    "scripts": {
+        "vscode:prepublish": "test -f ./syntaxes/dhall.tmLanguage.json",
+        "prepare": "npx ts-node src/typescript/dhall-tmlanguage.ts > ./syntaxes/dhall.tmLanguage.json"
+    },
     "dependencies": {}
 }

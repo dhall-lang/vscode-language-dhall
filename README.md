@@ -17,10 +17,14 @@ Build steps:
 
 ```bash
 npm install
-npm build
 npx ts-node src/typescript/dhall-tmlanguage.ts > ./syntaxes/dhall.tmLanguage.json
 ```
 
+Packaging:
+
+```bash
+vsce package
+```
 
 # Dev Resources
 
