@@ -14,8 +14,9 @@
 
     {- lorem {- ipsum -} dolor -}
 -- ^                               - comment.block.dhall
-  --!!  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  comment.block.dhall
-
+--  ^^^^^^^^^                      comment.block.dhall 
+--           ^^^^^^^^^^^           comment.block.dhall comment.block.dhall
+--                      ^^^^^^^^^  comment.block.dhall
     -- consectetur {- adipisicing
 -- ^                               - comment.line.double-dash.dhall
 --                 ^^              - punctuation.definition.comment.begin.dhall
@@ -158,7 +159,7 @@ in  let replicateAscii : Natural -> forall(a : Type) -> a -> List a
 --                       ^^^^   keyword.other.dhall
 --                           ^  punctuation.section.parens.end.dhall
 --               ^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
-  --!!          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+--          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
             ->  \(cons : a -> list -> list)
 --          ^^                                keyword.operator.arrow.dhall
 --              ^                            keyword.control.dhall
@@ -168,18 +169,18 @@ in  let replicateAscii : Natural -> forall(a : Type) -> a -> List a
 --                         ^^                keyword.operator.arrow.dhall
 --                                 ^^        keyword.operator.arrow.dhall
 --                                        ^  punctuation.section.parens.end.dhall
-  --!!               ^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
-  --!!          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+--               ^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
+--          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
             ->  Natural/fold n list (cons x)
 --          ^^                                keyword.operator.arrow.dhall
 --              ^^^^^^^^^^^^                  entity.name.function
 --                                  ^         punctuation.section.parens.begin.dhall
 --                                         ^  punctuation.section.parens.end.dhall
-  --!!                                  ^^^^^^^^  meta.parens.dhall meta.parens.dhall
+--                                  ^^^^^^^^  meta.parens.dhall meta.parens.dhall
 --          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
             )
 --          ^  punctuation.section.parens.end.dhall
-  --!! ^^^^^^^^^^  meta.parens.dhall
+-- ^^^^^^^^^^  meta.parens.dhall
 
 in  let compose
 --  ^^^          keyword.other.let.dhall
