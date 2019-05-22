@@ -6,3 +6,4 @@ src/**
 extras/**
 **/.gitkeep
 node_modules
+scripts/**

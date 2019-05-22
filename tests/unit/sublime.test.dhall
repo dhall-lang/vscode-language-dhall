@@ -82,7 +82,7 @@
 --                       ^^^^   keyword.other.dhall
 --                           ^  punctuation.section.parens.end.dhall
 --               ^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
-  --!!          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+--          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
             →   λ(cons : a → list → list)
 --          ^                              keyword.operator.arrow.dhall
 --              ^                          keyword.control.dhall
@@ -93,7 +93,7 @@
 --                                ^        keyword.operator.arrow.dhall
 --                                      ^  punctuation.section.parens.end.dhall
 --               ^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
-  --!!          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+--          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
             →   Natural/fold n list (cons x)
 --          ^                                 keyword.operator.arrow.dhall
 --              ^^^^^^^^^^^^                  entity.name.function

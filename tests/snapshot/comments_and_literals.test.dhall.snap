@@ -1,0 +1,3022 @@
+[
+  {
+    "src": "-- This is a line comment",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 25,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "next line should be not comment",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 5,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 5,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 9,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 10,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 16,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 17,
+        "endIndex": 19,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 19,
+        "endIndex": 20,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 20,
+        "endIndex": 23,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 23,
+        "endIndex": 24,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 24,
+        "endIndex": 31,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- First comment line",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 21,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- Second comment line",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 22,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "in {--} between",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 5,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 5,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 7,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 8,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "{-",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "multiline",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-}",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "comment should be closed",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 7,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 8,
+        "endIndex": 14,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 14,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 15,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 17,
+        "endIndex": 18,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 18,
+        "endIndex": 24,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": " ",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- Comments can be nested!",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 26,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "{- foo {- bar -} baz -} yes!",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 7,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 9,
+        "endIndex": 14,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 14,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 16,
+        "endIndex": 21,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 21,
+        "endIndex": 23,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 23,
+        "endIndex": 24,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 24,
+        "endIndex": 27,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 27,
+        "endIndex": 29,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "--! Better comments should work with my comments",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 48,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "{- TODO:  but no luck, alas -}",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 28,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      },
+      {
+        "startIndex": 28,
+        "endIndex": 30,
+        "scopes": [
+          "source.dhall",
+          "comment.block.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "'''''''''''''''' -- should interpret as ",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 17,
+        "endIndex": 19,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 19,
+        "endIndex": 40,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "                 --  four escape sequences",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 17,
+        "endIndex": 19,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 19,
+        "endIndex": 42,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- rezerved words:",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 18,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; A simple label cannot be one of the following reserved names:",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 10,
+        "endIndex": 11,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 11,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 16,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 17,
+        "endIndex": 23,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 23,
+        "endIndex": 24,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 24,
+        "endIndex": 26,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 26,
+        "endIndex": 27,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 27,
+        "endIndex": 30,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 30,
+        "endIndex": 31,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 31,
+        "endIndex": 33,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 33,
+        "endIndex": 34,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 34,
+        "endIndex": 37,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 37,
+        "endIndex": 38,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 38,
+        "endIndex": 47,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 47,
+        "endIndex": 48,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 48,
+        "endIndex": 56,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 56,
+        "endIndex": 57,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 57,
+        "endIndex": 62,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 62,
+        "endIndex": 63,
+        "scopes": [
+          "source.dhall",
+          "keyword.other.colon.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": ";",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Bool",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Optional",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 12,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * None",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 11,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Integer",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 11,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Double",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Text",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "support.class.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * True",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "constant.language.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * False",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "constant.language.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * NaN",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "constant.language.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Infinity",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 12,
+        "scopes": [
+          "source.dhall",
+          "constant.language.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Type",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "keyword.other.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Kind",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "keyword.other.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Sort",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "keyword.other.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/fold",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/build",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/isZero",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 18,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/even",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/odd",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/toInteger",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 21,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Natural/show",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Integer/toDouble",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 20,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Integer/show",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Double/show",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      },
+      {
+        "startIndex": 10,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall",
+          "string.unquoted.file.dhall",
+          "meta.path.file.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/build",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 14,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/fold",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 13,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/length",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/head",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 13,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/last",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 13,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/indexed",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * List/reverse",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Optional/fold",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Optional/build",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 18,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * if",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 6,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.conditional.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * then",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.conditional.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * else",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.conditional.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * let",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "meta.declaration.expression.let.dhall",
+          "keyword.other.let.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * in",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall",
+          "meta.declaration.expression.let.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 6,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * as",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 6,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * using",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * merge",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * constructors",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 16,
+        "scopes": [
+          "source.dhall",
+          "keyword.control.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "; * Some",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "keyword.operator.arithmetic.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 4,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "constant.language.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- words",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "_this_is_single_word",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 20,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "List/indexed -- not sure if this should break on '/' or not",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 12,
+        "scopes": [
+          "source.dhall",
+          "entity.name.function"
+        ]
+      },
+      {
+        "startIndex": 12,
+        "endIndex": 13,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 13,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 15,
+        "endIndex": 59,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "`this.is.a12_-.quot$ed.word`",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 1,
+        "endIndex": 5,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 5,
+        "endIndex": 6,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 6,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 8,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 9,
+        "endIndex": 14,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 14,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 15,
+        "endIndex": 19,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 19,
+        "endIndex": 20,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 20,
+        "endIndex": 22,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 22,
+        "endIndex": 23,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 23,
+        "endIndex": 27,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 27,
+        "endIndex": 29,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- should autoclose:",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 20,
+        "scopes": [
+          "source.dhall",
+          "comment.line.double-dash.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "''well, that's something''",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 2,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 2,
+        "endIndex": 6,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 6,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 8,
+        "endIndex": 12,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 12,
+        "endIndex": 13,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 13,
+        "endIndex": 14,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 14,
+        "endIndex": 15,
+        "scopes": [
+          "source.dhall"
+        ]
+      },
+      {
+        "startIndex": 15,
+        "endIndex": 24,
+        "scopes": [
+          "source.dhall",
+          "meta.label.dhall"
+        ]
+      },
+      {
+        "startIndex": 24,
+        "endIndex": 26,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "\"\"",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "[]",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "<>",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "()",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- but not in strings",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 22,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "\"''\"",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      },
+      {
+        "startIndex": 1,
+        "endIndex": 3,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.single.dhall"
+        ]
+      },
+      {
+        "startIndex": 3,
+        "endIndex": 4,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- or comm''ents",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 17,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-12345",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "+12345",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": " 12345",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 7,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "440394 ",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 8,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-- TODO: Infinity, -Infinity are numbers",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 41,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "Infinity",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 9,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "-Infinity",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 10,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "abcd",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 5,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  },
+  {
+    "src": "",
+    "tokens": [
+      {
+        "startIndex": 0,
+        "endIndex": 1,
+        "scopes": [
+          "source.dhall",
+          "string.quoted.double.dhall"
+        ]
+      }
+    ]
+  }
+]
