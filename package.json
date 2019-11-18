@@ -23,13 +23,13 @@
         "color": "#293845",
         "theme": "dark"
     },
-    "homepage": "https://github.com/PanAeon/vscode-language-dhall",
+    "homepage": "https://github.com/dhall-lang/vscode-language-dhall",
     "repository": {
         "type": "git",
-        "url": "https://github.com/PanAeon/vscode-language-dhall.git"
+        "url": "https://github.com/dhall-lang/vscode-language-dhall.git"
     },
     "bugs": {
-        "url": "https://github.com/PanAeon/vscode-language-dhall/issues"
+        "url": "https://github.com/dhall-lang/vscode-language-dhall/issues"
     },
     "contributes": {
         "languages": [
