@@ -1,11 +1,5 @@
 # Dhall Language support
 
-**This extension is deprecated and going to be removed from the marketplace.**
-
-**Please install** ['official' dhall extension](https://marketplace.visualstudio.com/items?itemName=dhall.dhall-lang)
-
----
-
 Syntax highlighting support for the [Dhall](https://dhall-lang.org) programming language.
 
 
