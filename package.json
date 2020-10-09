@@ -54,10 +54,6 @@
         ]
     },
     "comment": "oniguruma ~7.0.2",
-    "main": "./dist/extension.js",
-    "activationEvents": [
-        "onLanguage:dhall"
-    ],
     "devDependencies": {
         "@types/node": "^11.15.31",
         "@types/vscode": "^1.49.0",
@@ -70,8 +66,5 @@
         "vscode:prepublish": "tsc && test -f ./syntaxes/dhall.tmLanguage.json && bash ./scripts/run-tests.sh",
         "prepare": "tsc && node dist/typescript/dhall-tmlanguage.js > ./syntaxes/dhall.tmLanguage.json",
         "test": "bash ./scripts/run-tests.sh"
-    },
-    "dependencies": {
-        "open": "^7.3.0"
     }
 }
