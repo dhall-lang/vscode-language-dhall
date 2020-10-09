@@ -3,3 +3,4 @@
 .history
 node_modules/
 syntaxes/dhall.tmLanguage.json
+dist

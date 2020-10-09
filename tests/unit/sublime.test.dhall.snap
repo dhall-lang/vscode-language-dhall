@@ -1,0 +1,1446 @@
+>-- SYNTAX TEST "source.dhall" "SublimeText pack"
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>-- adapted @from https://raw.githubusercontent.com/SQbQxeKd3JHD8/SublimeDhall/master/syntax_test_dhall.dhall 
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>{- COMMENTS -}
+#^^ source.dhall comment.block.dhall
+#  ^^^^^^^^^^ source.dhall comment.block.dhall
+#            ^^ source.dhall comment.block.dhall
+>
+>    -- foo
+#^^^^ source.dhall
+#    ^^ source.dhall comment.line.double-dash.dhall
+#      ^^^^ source.dhall comment.line.double-dash.dhall
+>-- ^        - comment.line.double-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^^^^  comment.line.double-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>    {- bar -}
+#^^^^ source.dhall
+#    ^^ source.dhall comment.block.dhall
+#      ^^^^^ source.dhall comment.block.dhall
+#           ^^ source.dhall comment.block.dhall
+>-- ^           - comment.line.double-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^^^^^^^  comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>    {- lorem {- ipsum -} dolor -}
+#^^^^ source.dhall
+#    ^^ source.dhall comment.block.dhall
+#      ^^^^^^^ source.dhall comment.block.dhall
+#             ^^ source.dhall comment.block.dhall comment.block.dhall
+#               ^^^^^^^ source.dhall comment.block.dhall comment.block.dhall
+#                      ^^ source.dhall comment.block.dhall comment.block.dhall
+#                        ^^^^^^^ source.dhall comment.block.dhall
+#                               ^^ source.dhall comment.block.dhall
+>-- ^                               - comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^^^^^^^                      comment.block.dhall 
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--           ^^^^^^^^^^^           comment.block.dhall comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--                      ^^^^^^^^^  comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>    -- consectetur {- adipisicing
+#^^^^ source.dhall
+#    ^^ source.dhall comment.line.double-dash.dhall
+#      ^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>-- ^                               - comment.line.double-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--                 ^^              - punctuation.definition.comment.begin.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--                 ^^^^^^^^^^^^^^  - comment.block.brace-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  comment.line.double-dash.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>    {- sit -- amet -}
+#^^^^ source.dhall
+#    ^^ source.dhall comment.block.dhall
+#      ^^^^^^^^^^^^^ source.dhall comment.block.dhall
+#                   ^^ source.dhall comment.block.dhall
+>-- ^                   - comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^^^^^^^^^^^^^^^  comment.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
+>
+>{- DEFINITIONS -}
+#^^ source.dhall comment.block.dhall
+#  ^^^^^^^^^^^^^ source.dhall comment.block.dhall
+#               ^^ source.dhall comment.block.dhall
+>
+>    let replicateUnicode : Natural → ∀(a : Type) → a → List a
+#^^^^ source.dhall
+#    ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#       ^ source.dhall meta.declaration.expression.let.dhall
+#        ^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall
+#                           ^^^^^^^ source.dhall meta.declaration.expression.let.dhall support.class.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall storage.modifier.universal-quantifier.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                       ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                           ^^^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                                  ^ source.dhall meta.declaration.expression.let.dhall
+#                                                   ^ source.dhall meta.declaration.expression.let.dhall meta.label.dhall
+#                                                    ^ source.dhall meta.declaration.expression.let.dhall
+#                                                     ^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                                      ^ source.dhall meta.declaration.expression.let.dhall
+#                                                       ^^^^ source.dhall meta.declaration.expression.let.dhall support.class.dhall
+#                                                           ^ source.dhall meta.declaration.expression.let.dhall
+#                                                            ^ source.dhall meta.declaration.expression.let.dhall meta.label.dhall
+>--  ^^^                                                      keyword.other.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--      ^^^^^^^^^^^^^^^^                                     variable.other.constant.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                         ^^^^^^^                           support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                 ^                         keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                   ^                       storage.modifier.universal-quantifier.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                    ^                      punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                     ^                     meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                       ^                   keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                         ^^^^              keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                             ^             punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                    ^^^^^^^^^^             meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                               ^           keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                   ^       keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                     ^^^^  support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>        =   λ(n : Natural) → λ(a : Type) → λ(x : a)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.assignment.dhall
+#         ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                  ^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall support.class.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                   ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^                                            keyword.operator.assignment.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^                                        keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^                                       punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--            ^                                      meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--              ^                                    keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                ^^^^^^^                            support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^                           punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^^^^^^^^^^^^^                           meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                         ^                         keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                           ^                       keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                            ^                      punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                             ^                     meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                               ^                   keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                 ^^^^              keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                     ^             punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                            ^^^^^^^^^^             meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                       ^           keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                         ^         keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                          ^        punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                           ^       meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                             ^     keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                               ^   meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                          ^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>        →   List/build a
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#         ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall entity.name.function
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.label.dhall
+>--      ^               keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^  entity.name.function
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>            (   λ(list : Type)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#             ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.control.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.colon.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                         ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^                   punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^               keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^              punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                ^^^^          meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                     ^        keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                       ^^^^   keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                           ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            →   λ(cons : a → list → list)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#             ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.control.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.colon.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                             ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                    ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^                              keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^                          keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^                         punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                ^^^^                     meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                     ^                   keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                         ^               keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                ^        keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                      ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            →   Natural/fold n list (cons x)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#             ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall entity.name.function
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                               ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                     ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^                                 keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^^^^^^^^^^^^                  entity.name.function
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                  ^         punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                         ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                  ^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>  --!!          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#  ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            )
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>-- ^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>
+>
+>in  let replicateAscii : Natural -> forall(a : Type) -> a -> List a
+#^^ source.dhall keyword.control.dhall
+#  ^^ source.dhall
+#    ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#       ^ source.dhall meta.declaration.expression.let.dhall
+#        ^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall
+#                         ^^^^^^^ source.dhall meta.declaration.expression.let.dhall support.class.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall
+#                                 ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall
+#                                    ^^^^^^ source.dhall meta.declaration.expression.let.dhall storage.modifier.universal-quantifier.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                           ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                            ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                               ^^^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.dhall
+#                                                   ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                                    ^ source.dhall meta.declaration.expression.let.dhall
+#                                                     ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                                       ^ source.dhall meta.declaration.expression.let.dhall
+#                                                        ^ source.dhall meta.declaration.expression.let.dhall meta.label.dhall
+#                                                         ^ source.dhall meta.declaration.expression.let.dhall
+#                                                          ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                                            ^ source.dhall meta.declaration.expression.let.dhall
+#                                                             ^^^^ source.dhall meta.declaration.expression.let.dhall support.class.dhall
+#                                                                 ^ source.dhall meta.declaration.expression.let.dhall
+#                                                                  ^ source.dhall meta.declaration.expression.let.dhall meta.label.dhall
+>--  ^^^                                                       keyword.other.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--      ^^^^^^^^^^^^^^                                             variable.other.constant.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                     ^                                           meta.declaration.expression.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                       ^^^^^^^                                   support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                               ^^                                keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                  ^^^^^^                         storage.modifier.universal-quantifier.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                        ^                        punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                         ^                       meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                           ^                     keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                             ^^^^                keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                 ^               punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                        ^^^^^^^^^^               meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                   ^^            keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                        ^^       keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                           ^^^^  support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>        =   \(n : Natural) -> \(a : Type) -> \(x : a)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.assignment.dhall
+#         ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                  ^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall support.class.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                           ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                    ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                          ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^                                            keyword.operator.assignment.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^                                        keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^                                       punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--            ^                                      meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--              ^                                    keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                ^^^^^^^                            support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^                           punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^^^^^^^^^^^^^                           meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                         ^^                         keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                            ^                       keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                             ^                      punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                              ^                     meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                ^                   keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                  ^^^^              keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                      ^             punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                             ^^^^^^^^^^             meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                        ^^           keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                           ^         keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^        punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                             ^       meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                               ^     keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                 ^   meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                  ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>        ->  List/build a
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#        ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#          ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall entity.name.function
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.label.dhall
+>--      ^^               keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^  entity.name.function
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>            (   \(list : Type)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#             ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.control.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.colon.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                         ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^                   punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^               keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^              punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                ^^^^          meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                     ^        keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                       ^^^^   keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                           ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            ->  \(cons : a -> list -> list)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#              ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.control.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.other.colon.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                           ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                              ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                   ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                      ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^^                                keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^                            keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^                           punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                ^^^^                       meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                     ^                     keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                         ^^                keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                 ^^        keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                        ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--               ^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            ->  Natural/fold n list (cons x)
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#              ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall entity.name.function
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                               ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                     ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall meta.label.dhall
+#                                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^^                                keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--              ^^^^^^^^^^^^                  entity.name.function
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                  ^         punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                         ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--                                  ^^^^^^^^  meta.parens.dhall meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall comment.line.double-dash.dhall
+>            )
+#^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--          ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>-- ^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>
+>in  let compose
+#^^ source.dhall keyword.control.dhall
+#  ^^ source.dhall
+#    ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#       ^ source.dhall meta.declaration.expression.let.dhall
+#        ^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+>--  ^^^          keyword.other.let.dhall
+#^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#                 ^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall
+#                         ^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall
+#                               ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall
+#                                   ^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+>--      ^^^^^^^  variable.other.constant.dhall
+#^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#                 ^^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall
+#                          ^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall
+#                                ^^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall
+#                                         ^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+>        : forall(a : Type) -> forall(b : Type) -> forall(c : Type)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall
+#         ^ source.dhall meta.declaration.expression.let.dhall
+#          ^^^^^^ source.dhall meta.declaration.expression.let.dhall storage.modifier.universal-quantifier.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                  ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                   ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.colon.dhall
+#                    ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                     ^^^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall
+#                           ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall
+#                              ^^^^^^ source.dhall meta.declaration.expression.let.dhall storage.modifier.universal-quantifier.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                       ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                         ^^^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall
+#                                               ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall
+#                                                  ^^^^^^ source.dhall meta.declaration.expression.let.dhall storage.modifier.universal-quantifier.dhall
+#                                                        ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                                         ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                                          ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                                           ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                                            ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                                             ^^^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.other.dhall
+#                                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^                                                           meta.declaration.expression.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--        ^^^^^^                                                    storage.modifier.universal-quantifier.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--              ^                                                   punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--               ^                                                  meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                 ^                                                keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                   ^^^^                                           keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                       ^                                          punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--              ^^^^^^^^^^                                          meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                         ^^                                       keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                            ^^^^^^                                storage.modifier.universal-quantifier.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                  ^                               punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                   ^                              meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                     ^                            keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                       ^^^^                       keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                           ^                      punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                  ^^^^^^^^^^                      meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                             ^^                   keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                ^^^^^^            storage.modifier.universal-quantifier.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                      ^           punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                       ^          meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                         ^        keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                           ^^^^   keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                               ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                                      ^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>        -> (a -> b) -> (b -> c) -> (a -> c)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#          ^ source.dhall meta.declaration.expression.let.dhall
+#           ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#              ^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                  ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                   ^ source.dhall meta.declaration.expression.let.dhall
+#                    ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                          ^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall
+#                                ^^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                      ^^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall meta.label.dhall
+#                                          ^ source.dhall meta.declaration.expression.let.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^^                                   keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--         ^                                 punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--            ^^                             keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                ^                          punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--         ^^^^^^^^                          meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                  ^^                       keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                     ^                     punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                        ^^                 keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                            ^              punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                     ^^^^^^^^              meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                              ^^           keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                 ^         punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                    ^^     keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                        ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                                 ^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>
+>        =  λ(A : Type)   -> λ(B : Type)   -> λ(C : Type)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.assignment.dhall
+#         ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                 ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                      ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                         ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                       ^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                          ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                   ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^                                                 keyword.operator.assignment.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--         ^                                              keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^                                             punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^                                            meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--             ^                                          keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--               ^^^^                                     keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                   ^                                    punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^                                    meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^^                               keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                          ^                             keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                           ^                            punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                            ^                           meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                              ^                         keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                ^^^^                    keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                    ^                   punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                           ^^^^^^^^^^                   meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                        ^^              keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                           ^            keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^           punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                             ^          meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                               ^        keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                 ^^^^   keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                     ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^^^^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>        -> λ(f : A -> B) -> λ(g : B -> C) -> λ(x : A)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#        ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                   ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                         ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                    ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.operator.arrow.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                          ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                                            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                                             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#                                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^^                                             keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--         ^                                           keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^                                          punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^                                         meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--             ^                                       keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                 ^^                                  keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                     ^                               punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^^^^^^^^^^^^                               meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^^                            keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                          ^                          keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                           ^                         punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                            ^                        meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                              ^                      keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                  ^^                 keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                      ^              punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                           ^^^^^^^^^^^^              meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                        ^^           keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                           ^         keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^        punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                             ^       meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                               ^     keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                  ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                            ^^^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>        -> g (f x)
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#        ^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.label.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+>--      ^^          keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^      punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--               ^  punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--           ^^^^^  meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>
+>in  let Nesting : Type = < Inline : {} | Nested : Text >
+#^^ source.dhall keyword.control.dhall
+#  ^^ source.dhall
+#    ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#       ^ source.dhall meta.declaration.expression.let.dhall
+#        ^^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall
+#                 ^ source.dhall meta.declaration.expression.let.dhall
+#                  ^^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.assignment.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall keyword.operator.union.begin.dhall
+#                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall
+#                           ^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall constant.other.attribute-name.dhall
+#                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall
+#                                  ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall punctuation.separator.dictionary.key-value.dhall
+#                                   ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall
+#                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall meta.declaration.data.record.block.dhall keyword.operator.record.begin.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall meta.declaration.data.record.block.dhall keyword.operator.record.end.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall
+#                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall punctuation.separator.dictionary.pair.dhall
+#                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall
+#                                         ^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall constant.other.attribute-name.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall punctuation.separator.dictionary.key-value.dhall
+#                                                 ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall
+#                                                  ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall support.class.dhall
+#                                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall meta.declaration.data.union.type.dhall
+#                                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.union.block.dhall keyword.operator.union.end.dhall
+>--  ^^^                                                   keyword.other.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--      ^^^^^^^                                           variable.other.constant.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--              ^                                         meta.declaration.expression.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                ^^^^                                    keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                     ^                                  keyword.operator.assignment.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^                                keyword.operator.union.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                         ^^^^^^                         constant.other.attribute-name.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                ^                       punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                  ^                     keyword.operator.record.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                   ^                    keyword.operator.record.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                  ^^                    meta.declaration.data.record.block.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                     ^                  punctuation.separator.dictionary.pair.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                       ^^^^^^           constant.other.attribute-name.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                              ^         punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                ^^^^    meta.declaration.data.union.type.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                     ^  keyword.operator.union.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.declaration.data.union.block.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>
+>in  let Tagged : Type → Type
+#^^ source.dhall keyword.control.dhall
+#  ^^ source.dhall
+#    ^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.let.dhall
+#       ^ source.dhall meta.declaration.expression.let.dhall
+#        ^^^^^^ source.dhall meta.declaration.expression.let.dhall variable.other.constant.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall
+#                ^ source.dhall meta.declaration.expression.let.dhall
+#                 ^^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.dhall
+#                     ^ source.dhall meta.declaration.expression.let.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall keyword.operator.arrow.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall
+#                        ^^^^ source.dhall meta.declaration.expression.let.dhall keyword.other.dhall
+>--  ^^^                       keyword.other.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--      ^^^^^^                variable.other.constant.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--             ^              meta.declaration.expression.let.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--               ^^^^         keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                    ^       keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>--                      ^^^^  keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall comment.line.double-dash.dhall
+>        = λ(a : Type) → {field : Text, nesting : ./Nesting, contents : a}
+#^^^^^^^^ source.dhall meta.declaration.expression.let.dhall
+#        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.assignment.dhall
+#         ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.control.dhall
+#           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.begin.dhall
+#            ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall meta.label.dhall
+#             ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.colon.dhall
+#               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall
+#                ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall keyword.other.dhall
+#                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.parens.dhall punctuation.section.parens.end.dhall
+#                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall keyword.operator.arrow.dhall
+#                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall
+#                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall keyword.operator.record.begin.dhall
+#                         ^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall constant.other.attribute-name.dhall
+#                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall
+#                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall punctuation.separator.dictionary.key-value.dhall
+#                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall
+#                                 ^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall support.class.dhall
+#                                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall punctuation.separator.dictionary.pair.dhall
+#                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall
+#                                       ^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall constant.other.attribute-name.dhall
+#                                              ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall
+#                                               ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall punctuation.separator.dictionary.key-value.dhall
+#                                                ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall
+#                                                 ^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall string.unquoted.file.dhall meta.path.file.dhall
+#                                                          ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall punctuation.separator.dictionary.pair.dhall
+#                                                           ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall
+#                                                            ^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall constant.other.attribute-name.dhall
+#                                                                    ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall
+#                                                                     ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall punctuation.separator.dictionary.key-value.dhall
+#                                                                      ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall
+#                                                                       ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.type.dhall meta.label.dhall
+#                                                                        ^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall meta.declaration.data.record.block.dhall keyword.operator.record.end.dhall
+>--      ^                                                                  keyword.operator.assignment.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--        ^                                                                keyword.control.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--         ^                                                               punctuation.section.parens.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--          ^                                                              meta.label.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--            ^                                                            keyword.other.colon.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--              ^^^^                                                       keyword.other.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                  ^                                                      punctuation.section.parens.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--         ^^^^^^^^^^                                                      meta.parens.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                    ^                                                    keyword.operator.arrow.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                      ^                                                  keyword.operator.record.begin.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                       ^^^^^                                             constant.other.attribute-name.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                             ^                                           punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                               ^^^^                                      support.class.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                   ^                                     punctuation.separator.dictionary.pair.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                     ^^^^^^^                             constant.other.attribute-name.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                             ^                           punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                               ^^^^^^^^^                 meta.path.file.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                        ^                punctuation.separator.dictionary.pair.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                          ^^^^^^^^       constant.other.attribute-name.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                                   ^     punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                                                                      ^  keyword.operator.record.end.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>--                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  meta.declaration.data.record.block.dhall
+#^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall meta.declaration.expression.let.dhall meta.declaration.foobar.dhall comment.line.double-dash.dhall
+>
+>in  {=} : {}
+#^^ source.dhall keyword.control.dhall
+#  ^^ source.dhall
+#    ^ source.dhall meta.declaration.data.record.block.dhall keyword.operator.record.begin.dhall
+#     ^ source.dhall meta.declaration.data.record.block.dhall meta.declaration.data.record.literal.dhall punctuation.separator.dictionary.key-value.dhall
+#      ^ source.dhall meta.declaration.data.record.block.dhall keyword.operator.record.end.dhall
+#       ^ source.dhall
+#        ^ source.dhall keyword.other.colon.dhall
+#         ^ source.dhall
+#          ^ source.dhall meta.declaration.data.record.block.dhall keyword.operator.record.begin.dhall
+#           ^ source.dhall meta.declaration.data.record.block.dhall keyword.operator.record.end.dhall
+>--  ^         keyword.operator.record.begin.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--   ^        punctuation.separator.dictionary.key-value.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--    ^       keyword.operator.record.end.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--  ^^^       meta.declaration.data.record.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--      ^     keyword.other.colon.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--        ^   keyword.operator.record.begin.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--         ^  keyword.operator.record.end.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>--        ^^  meta.declaration.data.record.block.dhall
+#^^ source.dhall comment.line.double-dash.dhall
+#  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ source.dhall comment.line.double-dash.dhall
+>
