@@ -3,7 +3,7 @@
 import { TmLanguage } from "./TmLanguageModel";
 
 import * as fs from 'fs';
-import * as Ajv from 'ajv';
+import Ajv from 'ajv';
 
 
 const hex_digit = '(?:[0-9a-fA-F])';
@@ -416,7 +416,7 @@ const tmLanguage: TmLanguage = {
             }]
 
         },
-        labelPropertyType: { // * { foo : Text } 
+        labelPropertyType: { // * { foo : Text }
 
             name: "constant.other.attribute-name.dhall",
             patterns: [{
@@ -432,7 +432,7 @@ const tmLanguage: TmLanguage = {
             }]
 
         },
-        labelPropertyVar: { // * { foo = "123" } 
+        labelPropertyVar: { // * { foo = "123" }
             name: "variable.object.property.dhall",
             patterns: [{
                 name: "variable.object.property.dhall",

@@ -2,11 +2,11 @@
     "name": "dhall-lang",
     "displayName": "Dhall Language Support",
     "description": "Syntax highlighting for the dhall programming language",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "preview": true,
     "publisher": "panaeon",
     "engines": {
-        "vscode": "^1.30.0"
+        "vscode": "^1.49.0"
     },
     "categories": [
         "Programming Languages"
@@ -54,17 +54,24 @@
         ]
     },
     "comment": "oniguruma ~7.0.2",
+    "main": "./dist/extension.js",
+    "activationEvents": [
+        "onLanguage:dhall"
+    ],
     "devDependencies": {
-        "@types/node": "^11.11.4",
+        "@types/node": "^11.15.31",
+        "@types/vscode": "^1.49.0",
         "ajv": "^6.10.0",
         "ts-node": "^8.0.2",
         "typescript": "^3.3.3",
-        "vscode-tmgrammar-test": "^0.0.4"
+        "vscode-tmgrammar-test": "0.0.10"
     },
     "scripts": {
-        "vscode:prepublish": "test -f ./syntaxes/dhall.tmLanguage.json",
-        "prepare": "npx ts-node src/typescript/dhall-tmlanguage.ts > ./syntaxes/dhall.tmLanguage.json",
+        "vscode:prepublish": "tsc && test -f ./syntaxes/dhall.tmLanguage.json && bash ./scripts/run-tests.sh",
+        "prepare": "tsc && node dist/typescript/dhall-tmlanguage.js > ./syntaxes/dhall.tmLanguage.json",
         "test": "bash ./scripts/run-tests.sh"
     },
-    "dependencies": {}
+    "dependencies": {
+        "open": "^7.3.0"
+    }
 }
