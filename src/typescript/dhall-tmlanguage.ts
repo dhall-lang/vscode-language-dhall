@@ -77,11 +77,11 @@ const tmLanguage: TmLanguage = {
             },
             {
                 name: "entity.name.function",
-                match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
+                match: "\\b(Natural/fold|Natural/build|Natural/isZero|Natural/even|Natural/odd|Natural/toInteger|Natural/show|Integer/toDouble|Integer/show|Double/show|List/build|List/fold|List/length|List/head|List/last|List/indexed|List/reverse|Optional/fold|Optional/build)\\b"
             },
             {
                 name: "support.class.dhall",
-                match: "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List)\\b"
+                match: "\\b(Bool|Optional|None|Natural|Integer|Double|Text|List)\\b"
             },
             {
                 name: "keyword.control.conditional.dhall",
