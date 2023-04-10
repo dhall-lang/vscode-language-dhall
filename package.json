@@ -1,70 +1,70 @@
 {
-    "name": "dhall-lang",
-    "displayName": "Dhall Language Support",
-    "description": "Syntax highlighting for the dhall programming language",
-    "version": "0.0.5",
-    "preview": true,
-    "publisher": "dhall",
-    "engines": {
-        "vscode": "^1.49.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "keywords": [
-        "language",
-        "dhall",
-        "highlight",
-        "syntax"
-    ],
-    "license": "MIT",
-    "icon": "images/dhall-icon.png",
-    "galleryBanner": {
-        "color": "#293845",
-        "theme": "dark"
-    },
-    "homepage": "https://github.com/dhall-lang/vscode-language-dhall",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/dhall-lang/vscode-language-dhall.git"
-    },
-    "bugs": {
-        "url": "https://github.com/dhall-lang/vscode-language-dhall/issues"
-    },
-    "contributes": {
-        "languages": [
-            {
-                "id": "dhall",
-                "aliases": [
-                    "Dhall",
-                    "dhall"
-                ],
-                "extensions": [
-                    "dhall"
-                ],
-                "configuration": "./language-configuration.json"
-            }
+  "name": "dhall-lang",
+  "displayName": "Dhall Language Support",
+  "description": "Syntax highlighting for the dhall programming language",
+  "version": "0.0.6",
+  "preview": true,
+  "publisher": "dhall",
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "language",
+    "dhall",
+    "highlight",
+    "syntax"
+  ],
+  "license": "MIT",
+  "icon": "images/dhall-icon.png",
+  "galleryBanner": {
+    "color": "#293845",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/dhall-lang/vscode-language-dhall",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhall-lang/vscode-language-dhall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dhall-lang/vscode-language-dhall/issues"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "dhall",
+        "aliases": [
+          "Dhall",
+          "dhall"
         ],
-        "grammars": [
-            {
-                "language": "dhall",
-                "scopeName": "source.dhall",
-                "path": "./syntaxes/dhall.tmLanguage.json"
-            }
-        ]
-    },
-    "comment": "oniguruma ~7.0.2",
-    "devDependencies": {
-        "@types/node": "^11.15.31",
-        "@types/vscode": "^1.49.0",
-        "ajv": "^6.10.0",
-        "ts-node": "^8.0.2",
-        "typescript": "^3.3.3",
-        "vscode-tmgrammar-test": "0.0.10"
-    },
-    "scripts": {
-        "vscode:prepublish": "tsc && test -f ./syntaxes/dhall.tmLanguage.json && bash ./scripts/run-tests.sh",
-        "prepare": "tsc && node dist/typescript/dhall-tmlanguage.js > ./syntaxes/dhall.tmLanguage.json",
-        "test": "bash ./scripts/run-tests.sh"
-    }
+        "extensions": [
+          "dhall"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dhall",
+        "scopeName": "source.dhall",
+        "path": "./syntaxes/dhall.tmLanguage.json"
+      }
+    ]
+  },
+  "comment": "oniguruma ~7.0.2",
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "@types/vscode": "^1.77.0",
+    "ajv": "^8.12.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "vscode-tmgrammar-test": "0.1.1"
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc && test -f ./syntaxes/dhall.tmLanguage.json && bash ./scripts/run-tests.sh",
+    "prepare": "tsc && node dist/dhall-tmlanguage.js > ./syntaxes/dhall.tmLanguage.json",
+    "test": "bash ./scripts/run-tests.sh"
+  }
 }
