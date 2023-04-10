@@ -81,7 +81,7 @@ const tmLanguage: TmLanguage = {
         },
         {
           name: "support.class.dhall",
-          match: "\\b(Bool|Optional|None|Natural|Integer|Doule|Text|List)\\b",
+          match: "\\b(Bool|Optional|None|Natural|Integer|Double|Text|List)\\b",
         },
         {
           name: "keyword.control.conditional.dhall",
