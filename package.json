@@ -42,6 +42,10 @@
                 "extensions": [
                     "dhall"
                 ],
+                "icon": {
+                    "dark": "images/dhall-icon.png",
+                    "light": "images/dhall-icon.png"
+                },
                 "configuration": "./language-configuration.json"
             }
         ],
